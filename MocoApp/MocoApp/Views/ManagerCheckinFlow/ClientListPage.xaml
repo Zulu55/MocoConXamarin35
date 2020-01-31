@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             Title="{translator:Translate lblClients}"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.ManagerCheckinFlow.ClientListPage">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="listPicture" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Label x:Name="lblEmpty" HorizontalOptions="Center" Text="{translator:Translate lblNoCheckinOpen}" IsVisible="False" />
+            
+            <ListView
+                x:Name="listView"
+                HasUnevenRows="True"       
+                IsPullToRefreshEnabled="true"    
+                RefreshCommand="{Binding LoadItemsCommand}"
+                SeparatorVisibility="None">
+
+                <ListView.Header>
+                    <StackLayout x:Name="stkLocation" IsVisible="False">
+                        <Picker Title="{translator:Translate lblSelectALocation}" x:Name="pckLocations" />
+                    </StackLayout>
+                </ListView.Header>
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid Padding="10,10,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"                                                                      
+                                        FillColor="#ccc"
+                                        Source="{Binding Client.Photo}"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        Style="{StaticResource listPicture}">
+                                    </controls:CircleImage>
+
+
+                                    <StackLayout Spacing="0" Grid.Column="1">
+                                        <Label Text="{Binding Client.ClientName}" Style="{StaticResource list_descString}" TextColor="{StaticResource TextTitleColor}"></Label>
+                                        <Label Text="{Binding OccupationStr}" Style="{StaticResource list_descString}" FontAttributes="Bold"></Label>
+                                        <Label Text="{Binding QtdPeopleStr}" Style="{StaticResource list_descString}"></Label>
+                                        <Label Text="{Binding PrefixAllocation}" IsVisible="{Binding ShowAllocationNumber}" Style="{StaticResource list_descString}"></Label>
+                                        <Label Text="{Binding LocationName}" Style="{StaticResource list_descString}" TextColor="Black"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="FillAndExpand" Grid.Column="2">
+                                        <Label Text="{Binding CheckInCreatedStr}" VerticalOptions="Start"  Style="{StaticResource list_dateString}"></Label>
+                                        <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="{Binding CheckinStatusColor}" Padding="3">
+                                            <Label Text="{Binding CheckInNumberStr}" FontSize="12" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView  Margin="0,2,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button VerticalOptions="EndAndExpand" BackgroundColor="#196aff" BorderColor="#196aff" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate lblAddNewClient}" Clicked="Button_Clicked"  ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

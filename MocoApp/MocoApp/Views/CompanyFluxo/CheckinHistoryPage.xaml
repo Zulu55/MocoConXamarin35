@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblCheckinsHistory}"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             BackgroundColor="White"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.CheckinHistoryPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblEmpty" HorizontalOptions="Center" Text="Nenhum checkin aberto." IsVisible="False" />
+            <ListView
+                x:Name="listView"
+                HasUnevenRows="True"                                
+                SeparatorVisibility="None">
+
+                <ListView.Header>
+                    <StackLayout>
+
+                        <StackLayout x:Name="stkLocation" IsVisible="False">
+                            <Picker Title="{translator:Translate lblSelectALocation}" x:Name="pckLocations" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{translator:Translate lblInitialDate}" VerticalTextAlignment="Center"></Label>
+                                <DatePicker Format="dd/MM/yyyy" x:Name="dtInit" DateSelected="dtInit_DateSelected" />
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{translator:Translate lblFinalDate}" VerticalTextAlignment="Center"></Label>
+                                <DatePicker Format="dd/MM/yyyy" x:Name="dtEnd" DateSelected="dtEnd_DateSelected" />
+                            </StackLayout>
+                        </StackLayout>
+                      
+                        
+                        
+                    </StackLayout>
+                    
+                </ListView.Header>
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid Padding="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:CircleImage
+                                                                      Aspect="AspectFill"     
+                                                                      Grid.Column="0"                                                                      
+                                                                      FillColor="#ccc"
+                                                                      Source="{Binding Client.Photo}"
+                                                                      HorizontalOptions="CenterAndExpand" 
+                                                                      VerticalOptions="CenterAndExpand"
+                                                                      WidthRequest="40" HeightRequest="40">
+                                    </controls:CircleImage>
+
+
+                                    <StackLayout Spacing="0" Grid.Column="1">
+                                        <Label Text="{Binding Client.Name}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="14"></Label>
+                                        <Label Text="{Binding OccupationStr}" LineBreakMode="NoWrap" FontSize="12" TextColor="Gray"></Label>
+                                        <Label Text="{Binding QtdPeopleStr}" LineBreakMode="NoWrap" FontSize="12" TextColor="Gray"></Label>
+                                        <Label Text="{Binding LocationName}" LineBreakMode="NoWrap" FontSize="12" TextColor="Black"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" Grid.Column="2">
+                                        <Label Text="{Binding CheckInCreatedStr}" FontSize="10" TextColor="#ccc"></Label>
+                                        <StackLayout BackgroundColor="{Binding CheckinStatusColor}" Padding="3">
+                                            <Label Text="{Binding CheckInNumberStr}" FontSize="12" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView  Margin="0,10,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

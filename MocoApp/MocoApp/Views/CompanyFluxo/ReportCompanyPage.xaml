@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             Title="{translator:Translate lblEstablishmentReport}"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.ReportCompanyPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"                                
+                                SeparatorVisibility="None">
+
+
+                <ListView.Header>
+                    <StackLayout>
+                        <Label Text="{translator:Translate lblAttendent}"></Label>
+                        <Picker Title="{translator:Translate txtAll2}" x:Name="pckAtendentes" SelectedIndexChanged="pckAtendentes_SelectedIndexChanged"   />
+
+                        <StackLayout>
+                            <Label Text="{translator:Translate lblLocation}"></Label>
+                            <Picker Title="{translator:Translate txtAll}" x:Name="pckLocations" SelectedIndexChanged="pckLocations_SelectedIndexChanged"   />
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal" Padding="10,0,0,2">
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="{translator:Translate lblInitialDate}" VerticalTextAlignment="Center"></Label>
+                                <DatePicker Format="dd/MM/yyyy" x:Name="dtInit" DateSelected="dtInit_DateSelected" />
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="{translator:Translate lblFinalDate}" VerticalTextAlignment="Center"></Label>
+                                <DatePicker Format="dd/MM/yyyy" x:Name="dtEnd" DateSelected="dtEnd_DateSelected" />
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Padding="10,0,0,2">
+
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="{translator:Translate lblOpeningHours}" VerticalTextAlignment="Center"></Label>
+                                <TimePicker x:Name="initTimerPicker" ></TimePicker>
+                            </StackLayout>
+
+
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="{translator:Translate lblFinalSchedule}" VerticalTextAlignment="Center"></Label>
+                                <TimePicker x:Name="endTimerPicker"></TimePicker>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Button Margin="0,0,0,10"  BackgroundColor="#ccc" TextColor="Black"  HorizontalOptions="FillAndExpand" Text="{translator:Translate lblFilter}" x:Name="btnFiltrar" Clicked="btnFiltrar_Clicked"     ></Button>
+
+                        <StackLayout x:Name="stkHeader" IsVisible="False" Margin="0,5,0,5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalTips" BackgroundColor="#4f8ad9" Grid.Column="0">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblTips}" />
+                                        <Label TextColor="White" x:Name="lblTotalTips" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalTax" BackgroundColor="#4f8ad9" Grid.Column="1">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblTaxs}" />
+                                        <Label TextColor="White" x:Name="lblTotalTaxs" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmDiscount" BackgroundColor="#4f8ad9" Grid.Column="2">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblDiscount}" />
+                                        <Label TextColor="White" x:Name="lblTotalDiscount" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalCard" BackgroundColor="#4f8ad9" Grid.Column="0">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblCard}" />
+                                        <Label TextColor="White" x:Name="lblTotalInCard" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Padding="5,5,10,5" x:Name="frmCompanyCard" BackgroundColor="#4f8ad9" Grid.Column="1">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblCompanyCard}" />
+                                        <Label TextColor="White" x:Name="lblCompanyCard" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalCash" BackgroundColor="#4f8ad9" Grid.Column="2">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblMoney}" />
+                                        <Label TextColor="White" x:Name="lblTotalInCash" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmRendimento" BackgroundColor="#4f8ad9" Grid.Column="3">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblYield}" />
+                                        <Label TextColor="White" x:Name="lblRendimento" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmClients" BackgroundColor="#1A5EB8" Grid.Column="0">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblClients}" />
+                                        <Label TextColor="White" x:Name="lblTotalClientes" />
+                                        <Label TextColor="White" Text="{translator:Translate lblAttended}" />
+                                        <Label TextColor="White" x:Name="lblTotalCLientAttended" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalCarts" BackgroundColor="#1A5EB8" Grid.Column="1">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblCart}" />
+                                        <Label TextColor="White" x:Name="lblTotalCart" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Padding="5,5,10,5" x:Name="frmTotalPedido" BackgroundColor="#1A5EB8" Grid.Column="2">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate alertOrders}" />
+                                        <Label TextColor="White" x:Name="lblTotalPedidos" />
+                                        <Label TextColor="White" x:Name="lblTotalPricePedidos" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Padding="5,5,10,5" x:Name="frmCanceled" BackgroundColor="#1A5EB8" Grid.Column="3">
+                                    <StackLayout>
+                                        <Label TextColor="White" Text="{translator:Translate lblCanceled}" />
+                                        <Label TextColor="White" x:Name="lblCancelados" />
+                                        <Label TextColor="White" x:Name="lblPriceCancelados" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Grid>
+
+
+
+
+                        </StackLayout>
+
+                        <Label x:Name="lblEmpty" Margin="0,10,0,0" HorizontalOptions="Center" Text="{translator:Translate lblNoRecordForTheRequestedFilter}" IsVisible="False" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid Padding="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:CircleImage
+                                                                      Aspect="AspectFill"     
+                                                                      Grid.Column="0"                                                                      
+                                                                      FillColor="#ccc"
+                                                                      Source="{Binding Photo}"
+                                                                      HorizontalOptions="CenterAndExpand" 
+                                                                      VerticalOptions="CenterAndExpand"
+                                                                      WidthRequest="40" HeightRequest="40">
+                                    </controls:CircleImage>
+
+
+                                    <StackLayout Spacing="0" Grid.Column="1">
+                                        <Label Text="{Binding Name}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="14"></Label>
+                                        <Label Text="{Binding Email}" LineBreakMode="NoWrap" FontSize="12" TextColor="Gray"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="0" Grid.Column="2" >
+                                        <Label Text="{Binding DateCheckin}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="10"></Label>
+                                        <Label Text="{Binding TotalOrdersStr}" LineBreakMode="NoWrap" FontSize="12" TextColor="Green" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
+                                    </StackLayout>
+
+                                    <!--<StackLayout VerticalOptions="CenterAndExpand" Grid.Column="2">
+                                        <Label Text="{Binding DateCheckin}" FontSize="10" LineBreakMode="NoWrap" XAlign="End"  HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Gray"></Label>
+                                        <Label Text="{Binding TotalOrdersStr}" FontSize="12" LineBreakMode="NoWrap"  HorizontalTextAlignment="Center"  FontAttributes="Bold" TextColor="Green"></Label>
+                                    </StackLayout>-->
+                                </Grid>
+
+                                <BoxView  Margin="0,10,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

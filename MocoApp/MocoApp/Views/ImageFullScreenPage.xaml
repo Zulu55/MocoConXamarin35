@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="MocoApp.Views.ImageFullScreenPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="ic_voltar" Margin="10,25,10,10" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                                        Tapped="OnBackTapped"
+                                      NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="imgPage"  ></Image>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

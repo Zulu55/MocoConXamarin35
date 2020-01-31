@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             Title="{translator:Translate lblFilter}"
+             BackgroundColor="{StaticResource BarracaColor}"
+             x:Class="MocoApp.Views.FilterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+
+                <StackLayout Padding="20" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Frame  HorizontalOptions="CenterAndExpand" x:Name="frmXaml" BackgroundColor="White">
+                        <StackLayout>
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate lblFilterUpper}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblName"></Label>
+                        </Grid>
+
+
+                        <Grid Margin="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                Tapped="OnProximidadeTapped"
+                                                NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_uncheck" x:Name="imgProximidade" WidthRequest="22"></Image>
+                            <Label Text="{translator:Translate lblOrderProximity}" Grid.Column="1"></Label>
+                            </Grid>
+
+                        <Grid Margin="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                Tapped="OnNameTapped"
+                                                NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_uncheck" x:Name="imgName" WidthRequest="22"></Image>
+                            <Label Text="{translator:Translate lblName}" Grid.Column="1"></Label>
+                        </Grid>
+
+                        <Grid Margin="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                Tapped="OnFavoritesTapped"
+                                                NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_uncheck" x:Name="imgFavorites" WidthRequest="22"></Image>
+                            <Label Text="{translator:Translate lblOrderFavorites}" Grid.Column="1"></Label>
+                            </Grid>
+
+                        <Grid Margin="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                Tapped="OnRatingsTapped"
+                                                NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_uncheck" x:Name="imgRatings" WidthRequest="22"></Image>
+                            <Label Text="{translator:Translate lblOrderBestRatings}" Grid.Column="1"></Label>
+                            </Grid>
+
+
+
+
+                            <StackLayout HorizontalOptions="End" Margin="0,15,0,0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                Tapped="OnOkTapped"
+                                                NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_ok" WidthRequest="32" ></Image>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+
+
+                    </Frame>
+                </StackLayout>
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

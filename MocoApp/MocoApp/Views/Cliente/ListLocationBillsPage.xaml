@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource GrayColor}"   
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Cliente.ListLocationBillsPage">
+    <ContentPage.Content>
+        <Grid>
+
+            <StackLayout Padding="20">
+
+
+                <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_voltar" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblTitle">
+                            </Label>
+                        </Grid>
+
+
+                        <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"                                                                
+                                SeparatorVisibility="None">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="0,5,0,5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout Spacing="0">
+                                                    <Label Text="{Binding LocationNameWithValue}" TextColor="Black" FontSize="14"></Label>
+                                                    <!--<Label Text="{Binding Location.Name}" TextColor="Black" FontSize="14"></Label>-->
+
+                                                    <Label Text="{Binding CheckinSubStatusStrWithValue}"  FontSize="12" TextColor="{Binding CheckinSubStatusColorV2}"></Label>
+
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Column="1">
+                                                    <!--<Image Source="ic_paid" WidthRequest="32" IsVisible="{Binding ShowPaidIcon}"></Image>
+                                                    <Label Text="{Binding DetailInfo}" IsVisible="{Binding DetailInfoVisible}" HorizontalOptions="Center" HorizontalTextAlignment="Center"  FontSize="12" TextColor="{Binding CheckinSubStatusColor}"></Label>-->
+                                                    <!--<Label Text="{Binding LocationNameWithValue}" TextColor="Black" FontSize="14"></Label>-->
+                                                    <Label Text="{Binding CheckinSubStatusStrWithValueV2}"  FontSize="12" TextColor="{Binding CheckinSubStatusColorValue}"></Label>
+                                                </StackLayout>
+
+                                            </Grid>
+
+                                            <BoxView  Margin="0,10,0,0" Color="DarkGray" HeightRequest="1" WidthRequest="500" />
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Footer>
+                                <StackLayout VerticalOptions="EndAndExpand"  x:Name="stkFooter">
+
+                                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label Text="{translator:Translate lblTotalSpent}" FontSize="14" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="{translator:Translate lblMoneyPlaceholder}" FontSize="15"  VerticalTextAlignment="Center" x:Name="lblSubTotal" HorizontalOptions="EndAndExpand" TextColor="#555"></Label>
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+                                    <StackLayout Orientation="Horizontal" IsVisible="False">
+                                        <Label Text="{translator:Translate lblTaxs}" x:Name="lblTaxsTitle" FontSize="14" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="{translator:Translate lblMoneyPlaceholder}" FontSize="15"  VerticalTextAlignment="Center" x:Name="lblTax" HorizontalOptions="EndAndExpand" TextColor="#555"></Label>
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" IsVisible="False"/>
+
+                                    <StackLayout Orientation="Horizontal" IsVisible="False">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout VerticalOptions="Center">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                            Tapped="OnTipsTapped"
+                                            NumberOfTapsRequired="1" />
+                                                </StackLayout.GestureRecognizers>
+                                                <Label Text="{translator:Translate lblTips}" x:Name="lblTipTitle" FontSize="14" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{translator:Translate lblTapToAlter}" x:Name="lblTapToAlter" IsVisible="False" FontSize="10" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <Label Text="" FontSize="15"  VerticalTextAlignment="Center" x:Name="lblTip" HorizontalOptions="EndAndExpand" TextColor="#555"></Label>
+
+                                    </StackLayout>
+                                    <BoxView Color="#eee" IsVisible="False" HeightRequest="1" WidthRequest="500" />
+
+                                    <!--20190212 - Comentado https://trello.com/c/xnoqpMp7/176-se-for-multilocation-remover-desconto-admin-e-client -->
+                                    <StackLayout  x:Name="stkDesconto" IsVisible="false" >
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{translator:Translate lblDiscount}"  FontSize="14" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="" FontSize="15"  VerticalTextAlignment="Center" x:Name="lblDesconto" HorizontalOptions="EndAndExpand" TextColor="#555"></Label>
+                                        </StackLayout>
+                                        <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                    </StackLayout>
+
+
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal" x:Name="stkFaltante">
+                                            <Label Text="{translator:Translate lblTotalMissing} " FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="" Margin="2,3,2,0" VerticalTextAlignment="Center" FontSize="18" TextColor="Orange"  HorizontalOptions="EndAndExpand" x:Name="lblTotalBePaid"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{translator:Translate lblTotalPaid} " FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="" Margin="2,3,2,0" VerticalTextAlignment="Center" FontSize="18" TextColor="Green"  HorizontalOptions="EndAndExpand" x:Name="lblTotal"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout x:Name="stkWarning"  Orientation="Horizontal" IsVisible="False">
+                                            <Label Text="" x:Name="lblLocation" FontSize="14" FontAttributes="None" TextColor="Red" VerticalTextAlignment="Center" IsVisible="False"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout x:Name="stkPayNow">
+
+                                            <StackLayout x:Name="stkCardValue"  Orientation="Horizontal" IsVisible="False">
+                                                <Label Text="{translator:Translate lblValueCard}"></Label>
+                                                <Label Text="0" x:Name="lblCardValue" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"></Label>
+                                                <!--<Entry Placeholder="" Text="{Binding CardValue, Converter={StaticResource currencyConverter}}" x:Name="txtCardValue" Keyboard="Numeric"></Entry>-->
+                                            </StackLayout>
+
+                                            <StackLayout x:Name="stkMoneyValue"  Orientation="Horizontal" IsVisible="False">
+                                                <Label Text="{translator:Translate lblValueMoney}"></Label>
+                                                <Label Text="0" x:Name="lblCashValue" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"></Label>
+                                                <!--<Entry Placeholder="" Text="{Binding CashValue, Converter={StaticResource currencyConverter}}"  x:Name="txtMoneyValue" Keyboard="Numeric"></Entry>-->
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+
+                                        <StackLayout x:Name="imgPaid" HorizontalOptions="CenterAndExpand" IsVisible="False">
+                                            <Image Source="ic_paid" HeightRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+
+                                            <Label x:Name="lblCardPaid" TextColor="Green"></Label>
+                                            <Label x:Name="lblCashPaid" TextColor="Green"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout  HorizontalOptions="CenterAndExpand" Margin="0,0,0,3"  x:Name="stkBtuttonOrder" >
+                                            <Label Text="   " x:Name="lblPaymentOption"></Label>
+                                            <Grid  HeightRequest="60" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="Red" VerticalOptions="EndAndExpand" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Button x:Name="btnRequestCheckout" Text="{translator:Translate btnFinish}" HeightRequest="70" Grid.Column="0"  FontSize="10" FontAttributes="Bold" BorderWidth="1" BorderColor="#ff0033" BackgroundColor="#ff0033"  TextColor="White" Clicked="OnCheckoutTapped"  IsVisible="False"></Button>
+                                            </Grid>
+                                        </StackLayout>
+                                        </StackLayout>
+                                </StackLayout>
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

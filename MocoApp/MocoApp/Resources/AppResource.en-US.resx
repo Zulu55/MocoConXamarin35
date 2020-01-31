@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="alertAlert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="alertAtention" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="alertAttedentRequest" xml:space="preserve">
+    <value>Attendant request</value>
+  </data>
+  <data name="alertAttedentRequestSucess" xml:space="preserve">
+    <value>Attendant request with success</value>
+  </data>
+  <data name="alertAttendentComming" xml:space="preserve">
+    <value>Please wait your attendant it’s on his way.</value>
+  </data>
+  <data name="alertCall" xml:space="preserve">
+    <value>Call</value>
+  </data>
+  <data name="alertCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="alertCardMoneyNeedBeEqualTotal" xml:space="preserve">
+    <value>The value in cash or card needs to be equal to the total value.</value>
+  </data>
+  <data name="alertCheckinClosed" xml:space="preserve">
+    <value>Check has been closed successfully.</value>
+  </data>
+  <data name="alertCheckinRegisteredSucess" xml:space="preserve">
+    <value>Check-in has been successful.</value>
+  </data>
+  <data name="alertCheckinSucess" xml:space="preserve">
+    <value>Thanks. Now you can start ordering.</value>
+  </data>
+  <data name="alertDelete" xml:space="preserve">
+    <value>Delete.</value>
+  </data>
+  <data name="alertEmployeeRegistered" xml:space="preserve">
+    <value>Employee has been registered.</value>
+  </data>
+  <data name="alertErrorOcured" xml:space="preserve">
+    <value>An error has occurred</value>
+  </data>
+  <data name="alertFillDiscount" xml:space="preserve">
+    <value>Please enter discount value</value>
+  </data>
+  <data name="alertFillEmail" xml:space="preserve">
+    <value>Please enter your email</value>
+  </data>
+  <data name="alertFillEmailPassword" xml:space="preserve">
+    <value>Please enter your email and password</value>
+  </data>
+  <data name="alertFillEmailValid" xml:space="preserve">
+    <value>Please enter a valid email</value>
+  </data>
+  <data name="alertFillMotiveCancel" xml:space="preserve">
+    <value>Please enter reason for cancelling</value>
+  </data>
+  <data name="alertFillName" xml:space="preserve">
+    <value>Enter name</value>
+  </data>
+  <data name="alertFillPassword" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="alertFillPasswordDifferent" xml:space="preserve">
+    <value>Passwords don’t match</value>
+  </data>
+  <data name="alertFillPhone" xml:space="preserve">
+    <value>Enter phone</value>
+  </data>
+  <data name="alertFillRating" xml:space="preserve">
+    <value>Enter a rating</value>
+  </data>
+  <data name="alertFillRoomNumber" xml:space="preserve">
+    <value>Enter room number</value>
+  </data>
+  <data name="alertFillTips" xml:space="preserve">
+    <value>Enter tip amount</value>
+  </data>
+  <data name="alertFillValid" xml:space="preserve">
+    <value>Enter valid password</value>
+  </data>
+  <data name="alertInfoDeleteCategory" xml:space="preserve">
+    <value>Are you sure you want to delete? All values for this item will be deleted.</value>
+  </data>
+  <data name="alertInformQtdPeople" xml:space="preserve">
+    <value>Please enter number of people</value>
+  </data>
+  <data name="alertInvalidFields" xml:space="preserve">
+    <value>Invalid field</value>
+  </data>
+  <data name="alertItemDeletedSucess" xml:space="preserve">
+    <value>Item removed successfully</value>
+  </data>
+  <data name="alertLoading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="alertLoging" xml:space="preserve">
+    <value>Loging</value>
+  </data>
+  <data name="alertMEessageSentSucess" xml:space="preserve">
+    <value>Message send successfully. Please wait for admin contact</value>
+  </data>
+  <data name="alertNeedCheckoutLocation" xml:space="preserve">
+    <value>You need to check-out in your actual location before can do a check-in</value>
+  </data>
+  <data name="alertNeedInformOccupation" xml:space="preserve">
+    <value>You need to enter {0}. Please contact an attendant</value>
+  </data>
+  <data name="alertNeedMakeCheckin" xml:space="preserve">
+    <value>You need to start an order</value>
+  </data>
+  <data name="alertNoneCheckinFound" xml:space="preserve">
+    <value>No Check-in was found</value>
+  </data>
+  <data name="alertOnlyNumber" xml:space="preserve">
+    <value>Please enter only numbers</value>
+  </data>
+  <data name="alertOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="alertOrderSucess" xml:space="preserve">
+    <value>Order placed successfully.</value>
+  </data>
+  <data name="alertPasswordChanged" xml:space="preserve">
+    <value>Password has been changed</value>
+  </data>
+  <data name="alertPrinting" xml:space="preserve">
+    <value>Printing...</value>
+  </data>
+  <data name="alertProfileChanged" xml:space="preserve">
+    <value>Profiled has been changed.</value>
+  </data>
+  <data name="alertRatingSucess" xml:space="preserve">
+    <value>Rating done successfully.</value>
+  </data>
+  <data name="alertReallyWantMakeOrder" xml:space="preserve">
+    <value>Are you sure you want to place an order?</value>
+  </data>
+  <data name="alertRequestSucess" xml:space="preserve">
+    <value>Check-out request placed successfully . Please wait to close your check.</value>
+  </data>
+  <data name="alertSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="alertSelectCompany" xml:space="preserve">
+    <value>Select a Company</value>
+  </data>
+  <data name="alertSelectedLocation" xml:space="preserve">
+    <value>Select location type.</value>
+  </data>
+  <data name="alertSucess" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="alertTakingLocation" xml:space="preserve">
+    <value>Loading your location...</value>
+  </data>
+  <data name="alertWaitAttedent" xml:space="preserve">
+    <value>Wait for attendant</value>
+  </data>
+  <data name="alertWantAttendent" xml:space="preserve">
+    <value>Do you want to call the attendant?</value>
+  </data>
+  <data name="alertWantcancelCheckout" xml:space="preserve">
+    <value>Do you want to close your check?</value>
+  </data>
+  <data name="alertWantCloseLocationBill" xml:space="preserve">
+    <value>Do you want to close your check at this location?</value>
+  </data>
+  <data name="alertWantMakeOrder" xml:space="preserve">
+    <value>Do you want to place the order?</value>
+  </data>
+  <data name="btnDelet" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="btnDelivered" xml:space="preserve">
+    <value>Delivered</value>
+  </data>
+  <data name="btnFinish" xml:space="preserve">
+    <value>Close bill</value>
+  </data>
+  <data name="btnInProgress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="btnNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="btnRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="lbCCompanyEdit" xml:space="preserve">
+    <value>Company edit</value>
+  </data>
+  <data name="lblAccept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="lblAccountDetails" xml:space="preserve">
+    <value>Account details</value>
+  </data>
+  <data name="lblAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="lblAddClient" xml:space="preserve">
+    <value>Add client</value>
+  </data>
+  <data name="lblAddDeliveryLocation" xml:space="preserve">
+    <value>Add delivery location</value>
+  </data>
+  <data name="lblAddDeliveryLocations" xml:space="preserve">
+    <value>Add location</value>
+  </data>
+  <data name="lblAddEmployee" xml:space="preserve">
+    <value>Add employee</value>
+  </data>
+  <data name="lblAddNewClient" xml:space="preserve">
+    <value>Add new client</value>
+  </data>
+  <data name="lblAddOrder" xml:space="preserve">
+    <value>Add order</value>
+  </data>
+  <data name="lblAllocation" xml:space="preserve">
+    <value>Location(Room #):</value>
+  </data>
+  <data name="lblAmountOfPeople" xml:space="preserve">
+    <value>Number of people</value>
+  </data>
+  <data name="lblAnyObservation" xml:space="preserve">
+    <value>Any observation?</value>
+  </data>
+  <data name="lblAttended" xml:space="preserve">
+    <value>Attendant</value>
+  </data>
+  <data name="lblAttendent" xml:space="preserve">
+    <value>Attendant</value>
+  </data>
+  <data name="lblAvailableToCustomers" xml:space="preserve">
+    <value>Available to clients ?</value>
+  </data>
+  <data name="lblBaksheesh" xml:space="preserve">
+    <value>Tip($)</value>
+  </data>
+  <data name="lblBeachs" xml:space="preserve">
+    <value>Beach</value>
+  </data>
+  <data name="lblCanceled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="lblCard" xml:space="preserve">
+    <value>Credit card</value>
+  </data>
+  <data name="lblCategories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="lblCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="lblChangeImage" xml:space="preserve">
+    <value>Image (click to change)</value>
+  </data>
+  <data name="lblChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="lblChangePasswordToUpper" xml:space="preserve">
+    <value>CHANGE PASSWORD</value>
+  </data>
+  <data name="lblCheckinDetails" xml:space="preserve">
+    <value>Check-in details</value>
+  </data>
+  <data name="lblCheckinPending" xml:space="preserve">
+    <value>Check-in pending</value>
+  </data>
+  <data name="lblCheckinsHistory" xml:space="preserve">
+    <value>Check in history</value>
+  </data>
+  <data name="lblCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="lblClickGreenToCheckin" xml:space="preserve">
+    <value>Check green button to check-in</value>
+  </data>
+  <data name="lblClickToChange" xml:space="preserve">
+    <value>*Click to change </value>
+  </data>
+  <data name="lblClient" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="lblClientName" xml:space="preserve">
+    <value>Client name</value>
+  </data>
+  <data name="lblClients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="lblClosedAccount" xml:space="preserve">
+    <value>Your account has been closed.</value>
+  </data>
+  <data name="lblcommentAboutProduct" xml:space="preserve">
+    <value>Leave a comment on this product.</value>
+  </data>
+  <data name="lblCompanies" xml:space="preserve">
+    <value>HiCharlie Venues</value>
+  </data>
+  <data name="lblConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="lblConfirmToPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="lblCorporation" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="lblCreateCategory" xml:space="preserve">
+    <value>Create category</value>
+  </data>
+  <data name="lblCreateGroup" xml:space="preserve">
+    <value>Create group</value>
+  </data>
+  <data name="lblCreateLocation" xml:space="preserve">
+    <value>Create location</value>
+  </data>
+  <data name="lblCreateProduct" xml:space="preserve">
+    <value>Create product</value>
+  </data>
+  <data name="lblDeleteEmployee" xml:space="preserve">
+    <value>Remove employee</value>
+  </data>
+  <data name="lblDeliver" xml:space="preserve">
+    <value>Deliver</value>
+  </data>
+  <data name="lblDelivery" xml:space="preserve">
+    <value>Delivery</value>
+  </data>
+  <data name="lblDeliveryLocations" xml:space="preserve">
+    <value>Delivery locations</value>
+  </data>
+  <data name="lblDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="lblDiscount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="lblEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="lblEditCategory" xml:space="preserve">
+    <value>Edit category</value>
+  </data>
+  <data name="lblEditEmployee" xml:space="preserve">
+    <value>Edit employee</value>
+  </data>
+  <data name="lblEditGroup" xml:space="preserve">
+    <value>Edit group</value>
+  </data>
+  <data name="lblEditLocation" xml:space="preserve">
+    <value>Edit location</value>
+  </data>
+  <data name="lblEditPassword" xml:space="preserve">
+    <value>Edit password</value>
+  </data>
+  <data name="lblEditProduct" xml:space="preserve">
+    <value>Edit product</value>
+  </data>
+  <data name="lblEditProfile" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="lblEditProfileUPPER" xml:space="preserve">
+    <value>EDIT PROFILE</value>
+  </data>
+  <data name="lblEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="lblEmailTwoPoints" xml:space="preserve">
+    <value>Email: </value>
+  </data>
+  <data name="lblEnter" xml:space="preserve">
+    <value>LOG IN</value>
+  </data>
+  <data name="LblEnterAsGuest" xml:space="preserve">
+    <value>ENTER AS VISITOR</value>
+  </data>
+  <data name="lblEnterContactUPPER" xml:space="preserve">
+    <value>ENTER CONTACT</value>
+  </data>
+  <data name="lblEstablishmentReport" xml:space="preserve">
+    <value>Company report</value>
+  </data>
+  <data name="lblExchangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="lblExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="lblFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="lblFilterUpper" xml:space="preserve">
+    <value>FILTER</value>
+  </data>
+  <data name="lblFinalDate" xml:space="preserve">
+    <value>Final date</value>
+  </data>
+  <data name="lblFinalSchedule" xml:space="preserve">
+    <value>Final schedule</value>
+  </data>
+  <data name="lblForgotPassword" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="lblGallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="lblGrill" xml:space="preserve">
+    <value>Grill</value>
+  </data>
+  <data name="lblHistory" xml:space="preserve">
+    <value>Orders history</value>
+  </data>
+  <data name="lblHotels" xml:space="preserve">
+    <value>Hotels</value>
+  </data>
+  <data name="lblHoursAttenUPPER" xml:space="preserve">
+    <value>HOURS OF OPERATION</value>
+  </data>
+  <data name="lblHowWantToPay" xml:space="preserve">
+    <value>How would you like to pay?</value>
+  </data>
+  <data name="lblIdiom" xml:space="preserve">
+    <value>Language preference</value>
+  </data>
+  <data name="lblImages" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="lblInitialDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="lblItemCreatedSucess" xml:space="preserve">
+    <value>Item created successfully</value>
+  </data>
+  <data name="lblItemUpdatedSucess" xml:space="preserve">
+    <value>Item updated successfully</value>
+  </data>
+  <data name="lblLeaveComment" xml:space="preserve">
+    <value>Leave a comment!</value>
+  </data>
+  <data name="lblLocality" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="lblLocalName" xml:space="preserve">
+    <value>Location name</value>
+  </data>
+  <data name="lblLocation" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="lblLocationDetails" xml:space="preserve">
+    <value>Location details</value>
+  </data>
+  <data name="lblLocationTwoPoints" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="lblLocationType" xml:space="preserve">
+    <value>Location type</value>
+  </data>
+  <data name="lblMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="lblMoney" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="lblMoneyPlaceholder" xml:space="preserve">
+    <value>$ 0,00</value>
+  </data>
+  <data name="lblMoneyPlaceholderTen" xml:space="preserve">
+    <value>$ 10.00</value>
+  </data>
+  <data name="lblMyOrders" xml:space="preserve">
+    <value>My orders</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="lblNewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="lblNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="lblNoCheckinOpen" xml:space="preserve">
+    <value>No Check-in open</value>
+  </data>
+  <data name="lblNoOrderAccept" xml:space="preserve">
+    <value>No orders accepted</value>
+  </data>
+  <data name="lblNoOrderInThePeriod" xml:space="preserve">
+    <value>No order during this period.</value>
+  </data>
+  <data name="lblNoPendingOrder" xml:space="preserve">
+    <value>No order pending.</value>
+  </data>
+  <data name="lblNoProducts" xml:space="preserve">
+    <value>No products.</value>
+  </data>
+  <data name="lblNoRecordForTheRequestedFilter" xml:space="preserve">
+    <value>No record for the requested filter.</value>
+  </data>
+  <data name="lblNotificationsUPPER" xml:space="preserve">
+    <value>NOTIFICATIONS</value>
+  </data>
+  <data name="lblNotOwnAny" xml:space="preserve">
+    <value>Don't have any</value>
+  </data>
+  <data name="lblNumberOfOcupation" xml:space="preserve">
+    <value>Enter location number</value>
+  </data>
+  <data name="lblNumberOfPeople" xml:space="preserve">
+    <value>Enter number of people</value>
+  </data>
+  <data name="lblObservation" xml:space="preserve">
+    <value>Observations</value>
+  </data>
+  <data name="lblOffices" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="lblOpeningHours" xml:space="preserve">
+    <value>Opening hours</value>
+  </data>
+  <data name="lblOrderBestRatings" xml:space="preserve">
+    <value>Best ratings</value>
+  </data>
+  <data name="lblOrderBy" xml:space="preserve">
+    <value>Ordered by distance</value>
+  </data>
+  <data name="lblOrderDetails" xml:space="preserve">
+    <value>Order details</value>
+  </data>
+  <data name="lblOrderFavorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="lblOrderHistory" xml:space="preserve">
+    <value>Orders history</value>
+  </data>
+  <data name="lblOrderPrice" xml:space="preserve">
+    <value>Total: {0:C}</value>
+  </data>
+  <data name="lblOrderPriceUnid" xml:space="preserve">
+    <value>Price unit. {0:C}</value>
+  </data>
+  <data name="lblOrderProximity" xml:space="preserve">
+    <value>Proximity</value>
+  </data>
+  <data name="lblOrdersDoneUPPER" xml:space="preserve">
+    <value>ORDERS PLACED</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lblPayLater" xml:space="preserve">
+    <value>Charge to Room</value>
+  </data>
+  <data name="lblPaymentFormUPPER" xml:space="preserve">
+    <value>FORM OF PAYMENT</value>
+  </data>
+  <data name="lblPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="lblPhone1" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="lblPhotoUPPER" xml:space="preserve">
+    <value>PHOTOS</value>
+  </data>
+  <data name="lblPrefix" xml:space="preserve">
+    <value>Prefix(Chair#, Table#...</value>
+  </data>
+  <data name="lblProduct" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="lblProductReport" xml:space="preserve">
+    <value>Products report</value>
+  </data>
+  <data name="lblProductsReport" xml:space="preserve">
+    <value>Products report</value>
+  </data>
+  <data name="lblQuantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="lblQuantityOfPeople" xml:space="preserve">
+    <value>Quantity of people: </value>
+  </data>
+  <data name="lblRating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="lblRattingsUpper" xml:space="preserve">
+    <value>RATINGS</value>
+  </data>
+  <data name="lblReasonForCancellationTwoPoints" xml:space="preserve">
+    <value>Reason for cancellation:</value>
+  </data>
+  <data name="lblRegister" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="lblRegisterInfo" xml:space="preserve">
+    <value>At registration you agree with </value>
+  </data>
+  <data name="lblRegisterName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="lblReject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="lblRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="lblReportEstablishment" xml:space="preserve">
+    <value>Venue report</value>
+  </data>
+  <data name="lblRequestAccount" xml:space="preserve">
+    <value>Request check</value>
+  </data>
+  <data name="lblRestaurants" xml:space="preserve">
+    <value>Restaurants</value>
+  </data>
+  <data name="lblRoom" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="lblRoomToPoints" xml:space="preserve">
+    <value>Room #:</value>
+  </data>
+  <data name="lblSelect" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="lblSelectALocation" xml:space="preserve">
+    <value>Select a location</value>
+  </data>
+  <data name="lblSelectWhereToDelivery" xml:space="preserve">
+    <value>Select delivery location</value>
+  </data>
+  <data name="lblSendPassword" xml:space="preserve">
+    <value>SEND PASSWORD</value>
+  </data>
+  <data name="lblShare" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="lblSold" xml:space="preserve">
+    <value>Sold</value>
+  </data>
+  <data name="lblSolicitation" xml:space="preserve">
+    <value>Call service</value>
+  </data>
+  <data name="lblStoque" xml:space="preserve">
+    <value>In Stock</value>
+  </data>
+  <data name="lblSubCheckins" xml:space="preserve">
+    <value>SubCheckins</value>
+  </data>
+  <data name="lblSubTotal" xml:space="preserve">
+    <value>Sub-Total</value>
+  </data>
+  <data name="lblTable" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="lblTableTwoPoints" xml:space="preserve">
+    <value>Table:</value>
+  </data>
+  <data name="lblTapToAlter" xml:space="preserve">
+    <value>*Click to change</value>
+  </data>
+  <data name="lblTaxs" xml:space="preserve">
+    <value>Taxes</value>
+  </data>
+  <data name="lblTerms" xml:space="preserve">
+    <value>Terms of use</value>
+  </data>
+  <data name="lblTheFee" xml:space="preserve">
+    <value>Taxes value (%)</value>
+  </data>
+  <data name="lblTips" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="lblTipValue" xml:space="preserve">
+    <value>Tip amount (%)</value>
+  </data>
+  <data name="lblTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="lblToCheckin" xml:space="preserve">
+    <value>To check in</value>
+  </data>
+  <data name="lblTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="lblTotalMissing" xml:space="preserve">
+    <value>Pending balance</value>
+  </data>
+  <data name="lblTotalOfPeople" xml:space="preserve">
+    <value>Total people</value>
+  </data>
+  <data name="lblTotalPaid" xml:space="preserve">
+    <value>Total paid</value>
+  </data>
+  <data name="lblTotalPaidTwouPints" xml:space="preserve">
+    <value>Total paid:</value>
+  </data>
+  <data name="lblTotalSpent" xml:space="preserve">
+    <value>Total spent</value>
+  </data>
+  <data name="lblTotalTwoPoints" xml:space="preserve">
+    <value>Total: </value>
+  </data>
+  <data name="lblUnitaryValue" xml:space="preserve">
+    <value>Unit value</value>
+  </data>
+  <data name="lblValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="lblValueCard" xml:space="preserve">
+    <value>Debit/Credit card amount</value>
+  </data>
+  <data name="lblValueCardTwoPoints" xml:space="preserve">
+    <value>Debit/Credit card amount: </value>
+  </data>
+  <data name="lblValueMoney" xml:space="preserve">
+    <value>Cash amount </value>
+  </data>
+  <data name="lblValueMoneyTwoPoints" xml:space="preserve">
+    <value>Cash amount: </value>
+  </data>
+  <data name="lblViewLocations" xml:space="preserve">
+    <value>View venues</value>
+  </data>
+  <data name="lblWantDeleteEmployee" xml:space="preserve">
+    <value>Do you want to remove employee?</value>
+  </data>
+  <data name="lblYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="lblYield" xml:space="preserve">
+    <value>Yield</value>
+  </data>
+  <data name="phEntryEmailCorrectly" xml:space="preserve">
+    <value>Enter correct email</value>
+  </data>
+  <data name="textCheckin" xml:space="preserve">
+    <value>Check-in</value>
+  </data>
+  <data name="textCheckout" xml:space="preserve">
+    <value>Check-out</value>
+  </data>
+  <data name="textCloseBill" xml:space="preserve">
+    <value>Close check</value>
+  </data>
+  <data name="textEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="textHiCharlieShare" xml:space="preserve">
+    <value>I’m here {0}. I am using  HiCharlie App, a new way to order at my favorite place! Join me! HiCharlie @ http://www.hicharlieapp.com"</value>
+  </data>
+  <data name="textNotGuestHotel" xml:space="preserve">
+    <value>Not a guest of the hotel</value>
+  </data>
+  <data name="textNotHaveReservation" xml:space="preserve">
+    <value>I don’t have one</value>
+  </data>
+  <data name="textOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="textPortugues" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+  <data name="textRatings" xml:space="preserve">
+    <value>ratings)</value>
+  </data>
+  <data name="textRequestCheckout" xml:space="preserve">
+    <value>Request check-out</value>
+  </data>
+  <data name="textRoomNumber" xml:space="preserve">
+    <value>Room#</value>
+  </data>
+  <data name="textSpain" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="textWantCloseLocationBillOrder" xml:space="preserve">
+    <value>Do you want to close your check at </value>
+  </data>
+  <data name="txtAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="txtFillNameMessage" xml:space="preserve">
+    <value>Enter name and message</value>
+  </data>
+  <data name="alertConfirmActionTitle" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="lblNewUser" xml:space="preserve">
+    <value>NEW USER</value>
+  </data>
+  <data name="currency" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="alertGuestRegister" xml:space="preserve">
+    <value>You are visitor. To access this function make your registration!</value>
+  </data>
+  <data name="lblCardObs" xml:space="preserve">
+    <value>(CARD)</value>
+  </data>
+  <data name="lblCart" xml:space="preserve">
+    <value>Cart</value>
+  </data>
+  <data name="lblCheckinsActive" xml:space="preserve">
+    <value>Checkins Open</value>
+  </data>
+  <data name="lblCruises" xml:space="preserve">
+    <value>Cruises</value>
+  </data>
+  <data name="lblEditCompany" xml:space="preserve">
+    <value>Edit Company</value>
+  </data>
+  <data name="lblInsertCardPaid" xml:space="preserve">
+    <value>Insert card paid value</value>
+  </data>
+  <data name="lblInsertMoneyPaid" xml:space="preserve">
+    <value>Insert money paid valu</value>
+  </data>
+  <data name="lblLoginLogout" xml:space="preserve">
+    <value>Login/Logout</value>
+  </data>
+  <data name="lblMoneyObs" xml:space="preserve">
+    <value>(MONEY)</value>
+  </data>
+  <data name="lblNotifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="lblOrderDone" xml:space="preserve">
+    <value>Order history</value>
+  </data>
+  <data name="lblOrdersAccepted" xml:space="preserve">
+    <value>Orders Accepted</value>
+  </data>
+  <data name="lblOrdersOpen" xml:space="preserve">
+    <value>Orders Open</value>
+  </data>
+  <data name="lblPaid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="lblPendingPayment" xml:space="preserve">
+    <value>Payment Pending:</value>
+  </data>
+  <data name="lblReports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="lblSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="lblTalkWithUs" xml:space="preserve">
+    <value>Talk with us</value>
+  </data>
+  <data name="lblEnterFacebook" xml:space="preserve">
+    <value>ENTER WITH FACEBOOK</value>
+  </data>
+  <data name="lblCurrentPosition" xml:space="preserve">
+    <value>Current Position</value>
+  </data>
+  <data name="lblNewPosition" xml:space="preserve">
+    <value>New Position</value>
+  </data>
+  <data name="lblTotalPositionsAvailable" xml:space="preserve">
+    <value>Total locations available: 1 to</value>
+  </data>
+  <data name="textNotAHiCharlieUser" xml:space="preserve">
+    <value>Not a HiCharlie user</value>
+  </data>
+  <data name="alertInformNumberOfPeople" xml:space="preserve">
+    <value>You need to inform the quantity of people</value>
+  </data>
+  <data name="alertNeedToFillAllocation" xml:space="preserve">
+    <value>You need to fill {0}. Please call an attendant</value>
+  </data>
+  <data name="alertSomethingWentWrong" xml:space="preserve">
+    <value>An error has occurred. Try again in a few minutes.</value>
+  </data>
+  <data name="lblPrint" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="lblQtdPeople" xml:space="preserve">
+    <value>People quantity: </value>
+  </data>
+  <data name="alertLoginBadAuth" xml:space="preserve">
+    <value>Incorrect user or password</value>
+  </data>
+  <data name="alertSessionExpired" xml:space="preserve">
+    <value>Your session has expired</value>
+  </data>
+  <data name="alertSlowConnection" xml:space="preserve">
+    <value>The connection seems slow or lost. Check your internet and try again please.</value>
+  </data>
+  <data name="lblClickHereLocation" xml:space="preserve">
+    <value>Click here to select location</value>
+  </data>
+  <data name="ECheckinSubStatusActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ECheckinSubStatusCheckout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="ECheckinSubStatusClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="ECheckinSubStatusDenied" xml:space="preserve">
+    <value>Denied</value>
+  </data>
+  <data name="ECheckinSubStatusPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="ECheckinSubStatusRequestedCheckout" xml:space="preserve">
+    <value>Requested checkout</value>
+  </data>
+  <data name="ECheckinSubStatusUndefined" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+  <data name="EOrderStatusAccepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="EOrderStatusCanceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="EOrderStatusClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="EOrderStatusDone" xml:space="preserve">
+    <value>Delivered</value>
+  </data>
+  <data name="EOrderStatusOnGoing" xml:space="preserve">
+    <value>On going</value>
+  </data>
+  <data name="EOrderStatusPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="ECheckinStatusCheckin" xml:space="preserve">
+    <value>Checkin</value>
+  </data>
+  <data name="ECheckinStatusCheckinPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="ECheckinStatusCheckout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="ECheckinStatusDenied" xml:space="preserve">
+    <value>Denied</value>
+  </data>
+  <data name="ECheckinStatusRequestedCheckin" xml:space="preserve">
+    <value>Requested checkin</value>
+  </data>
+  <data name="ECheckinStatusRequestedCheckout" xml:space="preserve">
+    <value>Requested checkout</value>
+  </data>
+  <data name="lstSelect" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="alertSelectStar" xml:space="preserve">
+    <value>Please rate between 1 and 5 stars</value>
+  </data>
+  <data name="lblRemoveImage" xml:space="preserve">
+    <value>Remove image</value>
+  </data>
+  <data name="lblSeeImage" xml:space="preserve">
+    <value>View image</value>
+  </data>
+  <data name="lblWait" xml:space="preserve">
+    <value>Wait</value>
+  </data>
+  <data name="lblWhatYouWantToDo" xml:space="preserve">
+    <value>What you want to do?</value>
+  </data>
+  <data name="lblLocationTableChair" xml:space="preserve">
+    <value>Location# (Table, Chair)</value>
+  </data>
+  <data name="lblRequestCheckout" xml:space="preserve">
+    <value>Request checkout</value>
+  </data>
+  <data name="lblSeeDetails" xml:space="preserve">
+    <value>See details</value>
+  </data>
+  <data name="lblSubCheckinsWithDetails" xml:space="preserve">
+    <value>(Click in the location name to see more details)</value>
+  </data>
+  <data name="alertFillPrefix" xml:space="preserve">
+    <value>Please fill {0}</value>
+  </data>
+  <data name="alertFillQuantity" xml:space="preserve">
+    <value>Please fill quantity of people</value>
+  </data>
+  <data name="optional" xml:space="preserve">
+    <value>(Optional)</value>
+  </data>
+  <data name="alertBodyChoosePaymentMethod" xml:space="preserve">
+    <value>Choose your payment method</value>
+  </data>
+  <data name="alertTitleChoosePaymentMethod" xml:space="preserve">
+    <value>Payment method</value>
+  </data>
+  <data name="alertCloseAllActiveLocations" xml:space="preserve">
+    <value>You need to close all active locations before</value>
+  </data>
+  <data name="lblOpenNewBillLocation" xml:space="preserve">
+    <value>Open new bill at new location</value>
+  </data>
+  <data name="lblNotInformedObs" xml:space="preserve">
+    <value>(NOT INFORMED)</value>
+  </data>
+  <data name="lblPleaseFill" xml:space="preserve">
+    <value>Enter {0} </value>
+  </data>
+  <data name="lblStartOrder" xml:space="preserve">
+    <value>Start order</value>
+  </data>
+  <data name="textItalian" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="lblCloseBill" xml:space="preserve">
+    <value>Close bill</value>
+  </data>
+  <data name="txtAll2" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="YouNeedToCloseCheckinBeforeOrdering" xml:space="preserve">
+    <value>You need to close your bill at {0} in order to place an order in {1}</value>
+  </data>
+  <data name="lblPayLaterTwo" xml:space="preserve">
+    <value>Transfer to main bill</value>
+  </data>
+  <data name="alertAddOrderDifferentCompany" xml:space="preserve">
+    <value>You cannot add an order from a different Company. Your current checkin is in this Company</value>
+  </data>
+  <data name="alertAddOrderDifferenteLocation" xml:space="preserve">
+    <value>You cannot add an order from a different location. Your current checkin is in this location {0}</value>
+  </data>
+  <data name="AlertAlreadyhasCheckin" xml:space="preserve">
+    <value>You have a checkin open at another company. Impossible to continue.</value>
+  </data>
+  <data name="AlertCartRequestedSucessfull" xml:space="preserve">
+    <value>The order was sucessfull sent.</value>
+  </data>
+  <data name="alertPaymentMethod" xml:space="preserve">
+    <value>You need to select payment method</value>
+  </data>
+  <data name="alertSelectPaymentType" xml:space="preserve">
+    <value>You need to select payment type</value>
+  </data>
+  <data name="alertSelectTimeOrder" xml:space="preserve">
+    <value>You need to select order time</value>
+  </data>
+  <data name="textOrderRemoved" xml:space="preserve">
+    <value>Order removed</value>
+  </data>
+  <data name="textUndo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="lblPendingInCash" xml:space="preserve">
+    <value>Pending in cash</value>
+  </data>
+  <data name="lblTransfer" xml:space="preserve">
+    <value>(TRANSFER)</value>
+  </data>
+  <data name="alertSelectedLocationMenu" xml:space="preserve">
+    <value>Select location meny type</value>
+  </data>
+  <data name="lblBody" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="lblCreateMenu" xml:space="preserve">
+    <value>Create menu</value>
+  </data>
+  <data name="lblEditMenu" xml:space="preserve">
+    <value>Edit menu</value>
+  </data>
+  <data name="lblLocationMenuType" xml:space="preserve">
+    <value>Location Menu Type</value>
+  </data>
+  <data name="lblMenu" xml:space="preserve">
+    <value>Informative Menu</value>
+  </data>
+  <data name="lblCurrency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="AlertNewNotification" xml:space="preserve">
+    <value>You have a new notification</value>
+  </data>
+  <data name="textCartAddNewCard" xml:space="preserve">
+    <value>Add new Card</value>
+  </data>
+  <data name="textCartAsap" xml:space="preserve">
+    <value>ASAP</value>
+  </data>
+  <data name="textCartCash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="textCartCheckout" xml:space="preserve">
+    <value>Check-out</value>
+  </data>
+  <data name="textCartContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="textCartEmptyCart" xml:space="preserve">
+    <value>Empty Cart</value>
+  </data>
+  <data name="textCartPaymentMethods" xml:space="preserve">
+    <value>Payment methods</value>
+  </data>
+  <data name="textCartPaymentOptions" xml:space="preserve">
+    <value>Payment options</value>
+  </data>
+  <data name="textCartPayNow" xml:space="preserve">
+    <value>Close Bill - Pay Now</value>
+  </data>
+  <data name="textCartSendOrder" xml:space="preserve">
+    <value>Send Order</value>
+  </data>
+  <data name="textCartSpecifiedTime" xml:space="preserve">
+    <value>Specified Time</value>
+  </data>
+  <data name="textCartTimeToOrder" xml:space="preserve">
+    <value>Time to order</value>
+  </data>
+  <data name="textCartTransferBill" xml:space="preserve">
+    <value>Transfer to Main Bill</value>
+  </data>
+  <data name="textCartYourOrder" xml:space="preserve">
+    <value>Your Order</value>
+  </data>
+  <data name="lblChat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="textWelcomeToChat" xml:space="preserve">
+    <value>Hi {0} how can we help you?
+</value>
+  </data>
+  <data name="txtTypeMessage" xml:space="preserve">
+    <value>Type your message here</value>
+  </data>
+  <data name="lblCompanyUseCardOnline" xml:space="preserve">
+    <value>Allow credit card processing?</value>
+  </data>
+  <data name="lblSameReasonForAllItems" xml:space="preserve">
+    <value>Apply same answer to all items?</value>
+  </data>
+  <data name="textUndo1" xml:space="preserve">
+    <value>Come back</value>
+  </data>
+  <data name="lblAllowChatOnlyForCustomers" xml:space="preserve">
+    <value>Enable chat for customers only?</value>
+  </data>
+  <data name="msgError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgAccept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="msgNotCheckIn" xml:space="preserve">
+    <value>You must have an active CheckIn to start a chat.</value>
+  </data>
+  <data name="lblRegisterSurname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="lblCompanyCard" xml:space="preserve">
+    <value>Company card</value>
+  </data>
+  <data name="alertFillSurname" xml:space="preserve">
+    <value>Please fill your surname</value>
+  </data>
+</root>

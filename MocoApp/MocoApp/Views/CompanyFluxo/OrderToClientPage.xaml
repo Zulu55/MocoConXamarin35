@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            Title="Adicionar pedido"
+             BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.OrderToClientPage">
+    <ContentPage.Content>
+           <ScrollView>
+            <StackLayout >
+                <Label Text="{translator:Translate lblClient}" TextColor="#898989" FontSize="16" Margin="10,5,0,0"></Label>
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"                                                                      
+                                        FillColor="#ccc"
+                                        Source="{Binding Client.Photo}"
+                                               VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="40" HeightRequest="40">
+                    </controls:CircleImage>
+
+
+                    <StackLayout Spacing="0" Grid.Column="1">
+                        <Label Text="{Binding Client.Name}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="14"></Label>
+                        <Label Text="{Binding Client.Email}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="12"></Label>
+                        <Label Text="{Binding Checkin.OccupationStr}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="14"></Label>
+                    </StackLayout>
+
+
+                </Grid>
+                <BoxView HeightRequest="3" Color="#ccc"  WidthRequest="500"/>
+
+                <Label Text="{translator:Translate lblProduct}" TextColor="#898989" FontSize="16" Margin="10,0,0,0" ></Label>
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>  
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>                      
+                    </Grid.ColumnDefinitions>
+
+                    <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"         
+                        x:Name="imgProduct"
+                                        FillColor="#ccc"                                        
+                                               VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="40" HeightRequest="40">
+                    </controls:CircleImage>
+
+
+                    <StackLayout Spacing="0" Grid.Column="1">
+                        <Label Text="" x:Name="lblProductName" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="14"></Label>
+                        <Label Text="" x:Name="lblProductDescription" LineBreakMode="NoWrap" TextColor="#898989" FontSize="14"></Label>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" Grid.Column="2">                        
+                        <Label  FontSize="16" x:Name="lblPrice"  HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Green"></Label>
+                    </StackLayout>
+
+
+
+                </Grid>
+                <BoxView HeightRequest="2" Color="#ccc"  WidthRequest="500"/>
+
+                <Entry Placeholder="{translator:Translate lblObservation}" Margin="5,0,5,0" x:Name="txtObs"/>
+                <Label Text="{translator:Translate lblQuantity}"></Label>
+                <Entry x:Name="txtQtd" Placeholder="{translator:Translate lblQuantity}" Margin="5,0,5,0" Text="1" />
+
+                <StackLayout x:Name="stkEntrega" Margin="5,0,5,0" IsVisible="False">
+                    <Label FontSize="18" TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblDeliver}"  Margin="5" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnPraiaTapped"
+                                                    NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_uncheck" VerticalOptions="Center" x:Name="imgPraia" WidthRequest="24"></Image>
+                        </StackLayout>
+                        <Label Margin="10,0,0,10" VerticalTextAlignment="Center" VerticalOptions="Center" Text="{translator:Translate lblBeach}" Grid.Column="1"></Label>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnChurrasqueiraTapped"
+                                                    NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_uncheck" VerticalOptions="Center" x:Name="imgChurrasqueira" WidthRequest="24"></Image>
+                        </StackLayout>
+                        <Label Margin="10,0,0,10" VerticalTextAlignment="Center" VerticalOptions="Center" Text="{translator:Translate lblGrill}" Grid.Column="1"></Label>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnQuartoTapped"
+                                                    NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_uncheck" VerticalOptions="Center" x:Name="imgQuarto" HeightRequest="24" WidthRequest="24"></Image>
+                        </StackLayout>
+                        <Label Margin="10,0,0,10" VerticalTextAlignment="Center" VerticalOptions="End" Text="{translator:Translate lblRoom}" Grid.Column="1"></Label>
+
+                    </Grid>
+
+
+                </StackLayout>
+
+
+                <Button VerticalOptions="EndAndExpand"  BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate lblAdd}" Clicked="btnAdd_Clicked" x:Name="btnAdd"      ></Button>
+
+                
+                
+
+            </StackLayout>            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

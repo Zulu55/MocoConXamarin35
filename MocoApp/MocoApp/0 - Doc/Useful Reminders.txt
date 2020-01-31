@@ -1,0 +1,5 @@
+﻿Cart 
+1 Alterações que impactam o teste/cart
+	MocoApp.Views.CompanyFluxo.OrderToClientPage
+	MocoApp.Models.CreateOrder
+	MocoApp.Views.Empresa.CompanyOrderPage

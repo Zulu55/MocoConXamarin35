@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblAddClient}"
+             BackgroundColor="White"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.AddNewClientPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="{translator:Translate lblClientName}" x:Name="lblName"/>
+                    <Entry x:Name="txtName" Text=""/>
+
+                    <Label Text="{translator:Translate lblEmailTwoPoints}" x:Name="lblEmail"/>
+                    <Entry x:Name="txtEmail"/>
+
+                    <!--<Label Text="{translator:Translate lblAllocation}" />
+                    <Entry x:Name="txtAlocation" />-->
+
+                    <Label Text="{translator:Translate lblQuantityOfPeople}"/>
+                    <Entry x:Name="txtQtd" Keyboard="Numeric" />
+
+                    <StackLayout x:Name="stkOcuppation" IsVisible="true">
+                        <!--<Label Text="{translator:Translate lblRoomToPoints}" x:Name="lblOccupation"/>-->
+                        <Label Text="" x:Name="lblOccupation"/>
+                        <Entry x:Name="txtOcupation" Keyboard="Numeric" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="stkLocation" IsVisible="False">
+                        <Label Text="{translator:Translate lblLocationTwoPoints}"/>
+                        <Picker x:Name="pckLocation"></Picker>
+                    </StackLayout>
+                    <StackLayout x:Name="stkPrefix" IsVisible="False">
+                        <Label Text="{translator:Translate lblPrefix}" x:Name="lblPrefix"/>
+                        <Entry x:Name="txtPrefix" Keyboard="Numeric"  />
+                    </StackLayout>
+                </StackLayout>
+                <Button VerticalOptions="EndAndExpand" BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate btnNext}" x:Name="btnAddClient" Clicked="btnAddClient_Clicked"     ></Button>
+            </StackLayout>
+        </ScrollView>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MocoApp.Views.Chat.ChatBubbleView">
+
+    <Grid x:Name="bubbleGrid">
+
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+        </Grid.RowDefinitions>
+       
+        <Frame x:Name="bubbleFrame"  HorizontalOptions="{Binding Alignment}" Padding="16,8" Margin="4"  HasShadow="False" BackgroundColor="#efefef">
+            
+            <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding name}" HorizontalOptions="StartAndExpand" FontSize="Micro" Opacity=".54" FontAttributes="Bold"/>
+                    <Label Text="{Binding FormattedTime}" HorizontalOptions="End" FontSize="Micro"/>
+                    <Image Source="{Binding StatusIcon}" WidthRequest="16" HeightRequest="16" VerticalOptions="Center"/>
+                </StackLayout>
+                <Label Text="{Binding message}" HorizontalOptions="{Binding Alignment}" HorizontalTextAlignment="Start"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ViewCell>

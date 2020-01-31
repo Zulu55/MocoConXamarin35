@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             Title="{translator:Translate lblChat}"             
+             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Chat.CompanyChatList">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="listPicture" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content >
+    
+    <StackLayout Padding="3,0,10,0">
+            <ListView HasUnevenRows="True" SeparatorVisibility="None"   x:Name="chatList" ItemTapped="ChatItem_Tapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid Padding="0,12">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <circle:CircleImage Source="{Binding photo}" 
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center"
+                                                FillColor="SteelBlue" 
+                                                Aspect="AspectFill"
+                                                HeightRequest="48" WidthRequest="48"
+                                                Style="{StaticResource listPicture}"></circle:CircleImage>
+                                </StackLayout>
+                                
+
+                                <StackLayout Orientation="Vertical" Grid.Column="1">
+                                    <Label Text="{Binding clientName}" FontAttributes="Bold" FontSize="15"/>
+                                    <Label Text="{Binding lastMessage} " FontSize="12" LineBreakMode="TailTruncation"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2" >
+                                    <Label Text="{Binding lastMessageDateStr}" FontSize="Micro" Opacity=".40" HorizontalOptions="End"
+                                                   HorizontalTextAlignment="End"/>
+                                    <Image Source="ic_chat_new_messages" WidthRequest="16" HeightRequest="16" VerticalOptions="End" 
+                                                   HorizontalOptions="End"
+                                                   IsVisible="{Binding HasNewMessages}"/>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblCategories}"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.CategoryListPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView
+                    x:Name="listView"
+                    HasUnevenRows="True"                    
+                    SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <Grid  >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:CircleImage
+                                                      Aspect="AspectFill"     
+                                                      Grid.Column="0"
+                                                      Margin="5"                                                      
+                                                      Source="{Binding ImageUri}"
+                                                      FillColor="#ccc"
+                                                      HorizontalOptions="CenterAndExpand" 
+                                                       WidthRequest="50" HeightRequest="50">                                        
+                                    </controls:CircleImage>
+
+                                    <StackLayout Grid.Column="1"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">                                        
+                                        <Label Text="{Binding Name}" Style="{StaticResource list_titleString}" FontSize="Medium" TextColor="{StaticResource TextTitleColor}"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="2" Padding="5">
+                                        <Button  BackgroundColor="#ccc" TextColor="Black" FontSize="10" Clicked="TapGestureRecognizer_Tapped"  Text="{translator:Translate lblEdit}">
+                                            
+                                        </Button>
+                                    </StackLayout>
+                                </Grid>
+                                <BoxView  Color="#eee" HeightRequest="1" WidthRequest="500" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--<Button VerticalOptions="EndAndExpand" BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="Nova Categoria" Clicked="Button_Clicked_1"  ></Button>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

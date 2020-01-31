@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="MocoApp.Views.NotificationPopupPage">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout 
+        VerticalOptions="Start" 
+        HorizontalOptions="Center" 
+        WidthRequest="300"
+        BackgroundColor="White"
+        Padding="20, 20, 20, 20">
+        <StackLayout Orientation="Horizontal">
+            <Image Source="ic_notification_appicon" WidthRequest="32" HeightRequest="32" VerticalOptions="Center"/>
+            <Label x:Name="titleLabel" Text="Title" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center"/>
+        </StackLayout>
+        <Label x:Name="messageLabel" Text="Message"/>
+    </StackLayout>
+    
+</pages:PopupPage>

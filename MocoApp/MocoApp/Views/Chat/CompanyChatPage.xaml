@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:local="clr-namespace:MocoApp.Views.Chat"
+xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.Chat.CompanyChatPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <ListView x:Name="msgList" HasUnevenRows="True" SeparatorVisibility="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ChatBubbleView/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <Frame Padding="16,4" Margin="8" BackgroundColor="White" CornerRadius="100">
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="msgEntry" Placeholder="{translator:Translate txtTypeMessage}" Completed="MsgEntry_Completed" HorizontalOptions="FillAndExpand"/>
+                    <!--<Button Text="Send" HorizontalOptions="End" Clicked="Send_Tapped"/>-->
+                    <Image Source="ic_send_message" HorizontalOptions="End" WidthRequest="32" HeightRequest="32" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Send_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

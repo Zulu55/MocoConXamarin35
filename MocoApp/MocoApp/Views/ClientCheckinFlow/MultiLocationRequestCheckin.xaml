@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MocoApp.Views.ClientCheckinFlow.MultiLocationRequestCheckin"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml"  >
+                <ScrollView>
+                    <StackLayout >
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate lblToCheckin}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblName"></Label>
+                        </Grid>
+
+                        <StackLayout x:Name="stkItens">
+                            <Label TextColor="Gray" Text="{translator:Translate lblNumberOfPeople}" x:Name="lblTextRoomNumber" FontSize="11"></Label>
+                            <Entry x:Name="txtQtd" Keyboard="Numeric"></Entry>
+                            <Label TextColor="Gray" Text="{translator:Translate lblNumberOfOcupation}" x:Name="lblOcuupation" FontSize="11"></Label>
+                            <Entry x:Name="txtOccupation"  Keyboard="Numeric"></Entry>
+
+                        </StackLayout>
+
+                        <!--<Image Source="" x:Name="imgCheck" VerticalOptions="Start" HorizontalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Tapped="OnCkGestureTapped_Tapped"
+                                      NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>-->
+
+
+                        <StackLayout x:Name="stkAct">
+                            <ActivityIndicator x:Name="act" IsEnabled="True" IsRunning="True" IsVisible="True"></ActivityIndicator>
+                        </StackLayout>
+                     
+                        <StackLayout x:Name="stkLocations" IsVisible="False">
+
+                            <Label FontSize="12" TextColor="Black"  Margin="0,0,0,10" Text="{translator:Translate lblClickGreenToCheckin}" ></Label>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="End" Margin="0,15,0,0" x:Name="stkCk">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                            Tapped="OnOkTapped"
+                                            NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_ok" WidthRequest="32" ></Image>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center"  Margin="0,15,0,0" x:Name="stkCheckout" IsVisible="False">
+                            <Label x:Name="lblCheckOut" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="12"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                            Tapped="OnCancelTapped"
+                                            NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_detail_checkout" WidthRequest="32" ></Image>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

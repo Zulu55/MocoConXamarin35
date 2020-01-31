@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MocoApp"
+             BackgroundColor="#A8A9A4"
+             x:Class="MocoApp.MainPage">
+
+    <StackLayout Padding="20">
+        <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout>
+
+                <Grid VerticalOptions="StartAndExpand" >
+                    <Image Source="img_hoteis" HorizontalOptions="Start" WidthRequest="48" HeightRequest="48"></Image>
+                    <Image Source="img_hoteis" HorizontalOptions="CenterAndExpand" WidthRequest="48" HeightRequest="48"></Image>
+                </Grid>
+
+
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Spacing="0">
+                        <Image Source="img_hoteis" WidthRequest="110" HeightRequest="110"></Image>
+                        <Label Text="" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="#77B3ED"></Label>
+                    </StackLayout>
+
+                    <StackLayout Spacing="0">
+                        <Image Source="img_barracas" WidthRequest="110" HeightRequest="110"></Image>
+                        <Label Text="Barracas" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="#52B480"></Label>
+                    </StackLayout>
+
+                    <StackLayout Spacing="0">
+                        <Image Source="img_restaurantes" WidthRequest="110" HeightRequest="110"></Image>
+                        <Label Text="" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="#FECB54"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>

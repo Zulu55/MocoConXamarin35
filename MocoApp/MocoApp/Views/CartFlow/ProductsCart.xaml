@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:cell="clr-namespace:MocoApp.Views.CartFlow"
+             BackgroundColor="#eee"
+             x:Class="MocoApp.Views.CartFlow.ProductsCart">
+    <ContentPage.Resources>
+        
+
+        <ResourceDictionary>
+
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+
+            <Style x:Key="categoryLabel" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="22"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="categoryImage" TargetType="Image">
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="160"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="160"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 25, 0, 0"  ></OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout Padding="20">
+                <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                    <StackLayout>
+
+                        <ScrollView>
+                            <StackLayout>
+                                <Grid VerticalOptions="StartAndExpand"  Margin="0,0,0,10" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnContOnBackinue_Tapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <StackLayout HorizontalOptions="Center" Grid.Column="1" Spacing="1">
+                                        <Grid Style="{StaticResource main_header_grid}" >
+                                            <controls:CircleImage
+                                                      Aspect="AspectFill"        
+                                                      FillColor="#ccc"
+                                                      HorizontalOptions="CenterAndExpand" 
+                                                      x:Name="imgUser" Source="{Binding Location.ImageUri}" Style="{StaticResource main_img}">
+                                            </controls:CircleImage>
+
+
+
+
+                                        </Grid>
+
+
+
+                                    </StackLayout>
+
+
+
+                                </Grid>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="{Binding Location.Name}" HorizontalTextAlignment="Center" Style="{StaticResource titleLabel}" x:Name="lblLocationName" TextColor="{StaticResource BarracaColor}"/>
+                                </StackLayout>
+
+
+                                <ListView ItemsSource="{Binding Orders, Mode=TwoWay}" HasUnevenRows="True" SeparatorVisibility="None">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <cell:ProductListViewCell/>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+
+
+                            </StackLayout>
+                        </ScrollView>
+
+
+
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+           
+                <Grid HeightRequest="60" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#0dba6c" VerticalOptions="EndAndExpand" >
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                        Tapped="OnContinue_Tapped"
+                        NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<BoxView HeightRequest="2" VerticalOptions="Start" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Color="Black" Opacity=".12"/>-->
+
+                    <Label Text="{translator:Translate textCartContinue}" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="White"
+                       Margin="10,4"/>
+                    <Label HorizontalOptions="EndAndExpand"  VerticalTextAlignment="Center" FontSize="18"  FontAttributes="Bold" TextColor="White" Grid.Column="1" Text="{Binding TotalBill}"
+                       Margin="10,4"/>
+
+                </Grid>
+        </Grid>
+         
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.OrderAcceptedListPage">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="listPicture" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="stackStatus" TargetType="StackLayout">
+                <Setter Property="Orientation">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="StackOrientation" Phone="Horizontal" Tablet="Vertical"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblEmpty" HorizontalOptions="Center" Text="{translator:Translate lblNoOrderAccept}" IsVisible="False" />
+            <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"
+                                
+                                SeparatorVisibility="None">
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <StackLayout>
+                                
+                                <Grid Padding="10,10,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:CircleImage
+                                            Aspect="AspectFill"     
+                                            Grid.Column="0"
+                                            FillColor="#ccc"
+                                            Source="{Binding Client.Photo}"
+                                            HorizontalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand"
+                                            Style="{StaticResource listPicture}">
+                                    </controls:CircleImage>
+
+
+                                    <StackLayout Spacing="0" Grid.Column="1">
+                                        <Label Text="{Binding Client.Name}" TextColor="{StaticResource TextTitleColor}" Style="{StaticResource list_titleString}"></Label>
+                                        <Label Text="{Binding Product.Name}" FontAttributes="Bold" Style="{StaticResource list_descString}" TextColor="Gray"></Label>
+                                        <Label Text="{Binding Checkin.OccupationStr}" Style="{StaticResource list_descString}"></Label>
+                                        <Label Text="{Binding Checkin.PrefixAllocation}" Style="{StaticResource list_descString}"></Label>
+                                        <Label Text="{Binding CheckinSub.Location.Name}" Style="{StaticResource list_descString}"></Label>
+                                        <Label Text="{Binding ReasonDenied}" IsVisible="{Binding ShowReasonDenied}" LineBreakMode="NoWrap" TextColor="Red" FontSize="12"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="FillAndExpand" Grid.Column="2">
+                                        <Label Text="{Binding OrderCreatedAtStr}" Style="{StaticResource list_dateString}"></Label>
+                                        <StackLayout VerticalOptions="EndAndExpand">
+                                            <StackLayout.Orientation>
+                                                <OnIdiom x:TypeArguments="StackOrientation" Phone="Horizontal" Tablet="Vertical"/>
+                                            </StackLayout.Orientation>
+                                            
+                                            
+                                            <Image Source="{Binding OrderStatusIcon}" VerticalOptions="Center" Style="{StaticResource list_descIcon}"/>
+                                            <Label Text="{Binding OrderStatusStr}" Style="{StaticResource list_dateString}"  HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="{Binding OrderStatusColor}"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Image Source="ic_clock" WidthRequest="16"></Image>
+                                            <Label Text="{Binding ShowTimeOrderValue}" VerticalOptions="Center"  Style="{StaticResource list_dateString}" HorizontalTextAlignment="Center" TextColor="#555"></Label>
+
+                                        </StackLayout>
+
+
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView  Margin="0,2,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

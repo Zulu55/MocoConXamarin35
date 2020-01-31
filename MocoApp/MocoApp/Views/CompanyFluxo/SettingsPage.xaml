@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.SettingsPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Margin="10" Text="{translator:Translate lblExchangePassword}" FontSize="18" TextColor="{StaticResource TextTitleColor}" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1" ></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </Label>
+            <BoxView Color="#ccc" HeightRequest="2" WidthRequest="500" />
+            <Label Margin="10" FontSize="18" Text="{translator:Translate lblEditProfile}" TextColor="{StaticResource TextTitleColor}" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1" ></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </Label>
+            <BoxView Color="#ccc" HeightRequest="2" WidthRequest="500" />
+            <Label Margin="10" FontSize="18" Text="{translator:Translate lblOffices}" TextColor="{StaticResource TextTitleColor}" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1" ></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </Label>
+            <BoxView Color="#ccc" HeightRequest="2" WidthRequest="500" />
+            <Label Margin="10" FontSize="18" Text="{translator:Translate lblCompanies}" TextColor="{StaticResource TextTitleColor}" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1" ></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </Label>
+            <BoxView Color="#ccc" HeightRequest="2" WidthRequest="500" />
+            <Label Margin="10" FontSize="18" Text="{translator:Translate lblExit}" TextColor="{StaticResource TextTitleColor}" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1" ></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

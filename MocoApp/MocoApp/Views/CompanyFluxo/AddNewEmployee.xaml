@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblAddEmployee}"
+             BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.AddNewEmployee">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="10">
+
+                    <StackLayout HorizontalOptions="Center">
+                        <controls:CircleImage Margin="0,20,0,0"  Grid.Column="1"   Aspect="AspectFill"  VerticalOptions="Center"  HorizontalOptions="Center" x:Name="imgUser" Source="ic_avatar" WidthRequest="100" HeightRequest="100">
+                        </controls:CircleImage>
+
+                        <Image Source="ic_camera" WidthRequest="32">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped"
+                                                NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+
+                    <Label Text="{translator:Translate lblName}" />
+                    <Entry x:Name="txtName" />
+
+                    <Label Text="{translator:Translate lblEmail}" />
+                    <Entry x:Name="txtEmail" Placeholder="{translator:Translate phEntryEmailCorrectly}" />
+
+
+                    <Label Text="{translator:Translate lblCity}" />
+                    <Entry x:Name="txtCity" Placeholder="" />
+
+                    <Label Text="{translator:Translate lblPhone}" />
+                    <Entry x:Name="txtPhone" Placeholder="" />
+
+                    <Label Text="{translator:Translate lblPassword}" />
+                    <Entry x:Name="txtPassword" />
+
+
+
+                </StackLayout>
+                <Button VerticalOptions="EndAndExpand" BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate btnRegister}" x:Name="btnAdd" Clicked="btnAdd_Clicked"     ></Button>
+            </StackLayout>
+        </ScrollView>
+        
+
+    </ContentPage.Content>
+</ContentPage>

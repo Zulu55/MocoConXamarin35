@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource GrayColor}"   
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Cliente.ListPedidoPage">
+    <ContentPage.Content>
+        <Grid>
+
+            <StackLayout Padding="20">
+
+
+                <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_voltar" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource list_titleString}" Grid.Column="1" x:Name="lblTitle">
+                            </Label>
+                        </Grid>
+
+
+                        <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"                                
+                                IsGroupingEnabled="True"
+                                SeparatorVisibility="None">
+
+                            <ListView.GroupHeaderTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout BackgroundColor="#ccc">
+                                            <Label TextColor="Black" Style="{StaticResource list_titleString}" Text="{Binding Title}" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.GroupHeaderTemplate>
+
+                            <ListView.Header>
+                                <StackLayout Spacing="0" Padding="0,10,0,5">
+                                    <Label Text="{translator:Translate lblCheckinDetails}"></Label>
+                                    <Label x:Name="lblOcupationStr" Style="{StaticResource list_descString}"></Label>
+                                    <Label x:Name="lblQtdPeopleStr" Style="{StaticResource list_descString}"></Label>
+                                </StackLayout>
+                            </ListView.Header>
+
+
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="0,5,0,5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout Spacing="0">
+                                                    <Label Text="{Binding OrderCreatedAtStr}" TextColor="Gray" Style="{StaticResource list_descString}"/>
+                                                    <Label Text="{Binding Product.Name}" Style="{StaticResource list_titleString}" TextColor="{StaticResource TextTitleColor}"/>
+                                                    <Label Text="{Binding Observation}" Style="{StaticResource list_descString}"/>
+                                                    <Label Text="{Binding QuantityPriceStr}" Style="{StaticResource list_descString}"/>
+                                                    <Label Text="{Binding TotalPriceStr}" TextColor="Green" Style="{StaticResource list_descString}"/>
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Column="1">
+                                                    <Label Text="{Binding OrderStatusStr}"  Style="{StaticResource list_descString}" TextColor="{Binding OrderStatusColor}"/>
+                                                    <Label Text="" Style="{StaticResource list_descString}"/>
+                                                    <Label Text="" Style="{StaticResource list_descString}"/>
+
+                                                    <Label Text="{translator:Translate lblAttendent}" Style="{StaticResource list_descString}"/>
+                                                    <Label Text="{Binding User.Name}" Style="{StaticResource list_descString}" TextColor="#fdbf2c"/>
+                                                </StackLayout>
+
+                                            </Grid>
+
+                                            <BoxView  Margin="0,10,0,0" Color="DarkGray" HeightRequest="1" WidthRequest="500" />
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Footer>
+                                <StackLayout VerticalOptions="EndAndExpand" IsVisible="False" x:Name="stkFooter">
+
+                                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label Text="{translator:Translate lblSubTotal}" Style="{StaticResource list_titleString}" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="{translator:Translate lblMoneyPlaceholder}" VerticalTextAlignment="Center" x:Name="lblSubTotal" HorizontalOptions="EndAndExpand" TextColor="#555">
+                                            <Label.FontSize>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{translator:Translate lblTaxs}" x:Name="lblTaxsTitle" Style="{StaticResource list_titleString}" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="{translator:Translate lblMoneyPlaceholder}" VerticalTextAlignment="Center" x:Name="lblTax" HorizontalOptions="EndAndExpand" TextColor="#555">
+
+                                            <Label.FontSize>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout VerticalOptions="Center">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                            Tapped="OnTipsTapped"
+                                            NumberOfTapsRequired="1" />
+                                                </StackLayout.GestureRecognizers>
+                                                <Label Text="{translator:Translate lblTips}" x:Name="lblTipTitle" Style="{StaticResource list_titleString}" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{translator:Translate lblTapToAlter}" x:Name="lblTapToAlter" IsVisible="False" Style="{StaticResource list_descString}" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <Label Text="" VerticalTextAlignment="Center" x:Name="lblTip" HorizontalOptions="EndAndExpand" TextColor="#555">
+                                            <Label.FontSize>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                            </Label.FontSize>
+                                        </Label>
+
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+                                    <StackLayout  x:Name="stkDesconto" IsVisible="False">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{translator:Translate lblDiscount}"  Style="{StaticResource list_titleString}" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="" VerticalTextAlignment="Center" x:Name="lblDesconto" HorizontalOptions="EndAndExpand" TextColor="#555">
+                                                <Label.FontSize>
+                                                    <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                                </Label.FontSize>
+                                            </Label>
+                                        </StackLayout>
+                                        <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </ListView.Footer>
+
+
+                        </ListView>
+
+
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{translator:Translate lblTotalTwoPoints}" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center">
+                                    <Label.FontSize>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                    </Label.FontSize>
+                                </Label>
+                                <ActivityIndicator Color="Green" IsRunning="True" IsVisible="True" IsEnabled="True" x:Name="actPiece"></ActivityIndicator>
+                                <Label Text="" Margin="2,3,2,0" VerticalTextAlignment="Center" TextColor="Green"  HorizontalOptions="EndAndExpand" x:Name="lblTotals">
+                                    <Label.FontSize>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="24"/>
+                                    </Label.FontSize>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout x:Name="stkPayNow">
+
+                                <StackLayout x:Name="stkCardValue"  Orientation="Horizontal" IsVisible="False">
+                                    <Label Text="{translator:Translate lblValueCardTwoPoints}"></Label>
+                                    <Label Text="0" x:Name="lblCardValue" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"></Label>
+                                    <!--<Entry Placeholder="" Text="{Binding CardValue, Converter={StaticResource currencyConverter}}" x:Name="txtCardValue" Keyboard="Numeric"></Entry>-->
+                                </StackLayout>
+
+                                <StackLayout x:Name="stkMoneyValue"  Orientation="Horizontal" IsVisible="False">
+                                    <Label Text="{translator:Translate lblValueMoneyTwoPoints}"></Label>
+                                    <Label Text="0" x:Name="lblCashValue" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"></Label>
+                                    <!--<Entry Placeholder="" Text="{Binding CashValue, Converter={StaticResource currencyConverter}}"  x:Name="txtMoneyValue" Keyboard="Numeric"></Entry>-->
+                                </StackLayout>
+                            </StackLayout>
+
+
+                            <StackLayout x:Name="imgPaid" HorizontalOptions="CenterAndExpand" IsVisible="False">
+                                <Image Source="ic_paid" HeightRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+
+                                <Label x:Name="lblCardPaid" TextColor="Green"></Label>
+                                <Label x:Name="lblCashPaid" TextColor="Green"></Label>
+                            </StackLayout>
+
+                            <StackLayout  HorizontalOptions="CenterAndExpand" Margin="0,0,0,3" x:Name="stkBtuttonOrder" >
+                                <!--<Label Text="{translator:Translate lblHowWantToPay}"></Label>-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                                        <!--<ColumnDefinition Width="2*" ></ColumnDefinition>
+                                        <ColumnDefinition Width="2*" ></ColumnDefinition>-->
+                                        <!--<ColumnDefinition Width="*" ></ColumnDefinition>-->
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<Button Text="{translator:Translate lblMoney}"  Grid.Column="1" x:Name="btnPayNow" Style="{StaticResource list_descString}" BorderWidth="1" BorderColor="#00cc66" BackgroundColor="#00cc66"  TextColor="White" Clicked="btnPayCash_Clicked"></Button>
+                                    <Button Text="{translator:Translate lblCard}" Grid.Column="2" Style="{StaticResource list_descString}"  BorderWidth="1" BorderColor="#31698a" BackgroundColor="#31698a"  TextColor="White" Clicked="btnPayCard_Clicked"></Button>-->
+
+                                    <Button x:Name="btnRequestCheckout" Text="{translator:Translate btnFinish}" Grid.Column="0"  HeightRequest="70"  FontAttributes="Bold" FontSize="10" BorderWidth="1" BorderColor="#ff0033" BackgroundColor="#ff0033"  TextColor="White" Clicked="OnCheckoutTapped" IsVisible="true"></Button>
+
+                                </Grid>
+
+
+
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,5" IsVisible="False">
+
+
+
+                                <StackLayout x:Name="grdCheckout" IsVisible="False" HorizontalOptions="EndAndExpand" >
+                                    <Label x:Name="lblEncerrada" Text="{translator:Translate lblClosedAccount}" IsVisible="False"></Label>
+
+                                    <Grid Margin="0,10,0,0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <StackLayout Grid.Column="2">
+                                            <Image Source="ic_detail_checkout" Grid.Column="1" HorizontalOptions="Center" WidthRequest="32">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                        Tapped="OnCheckoutTapped"
+                                      NumberOfTapsRequired="1" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                            <Label TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblRequestAccount}" Style="{StaticResource list_descString}"  HorizontalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </Grid>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+
+
+
+
+                    </StackLayout>
+
+
+
+
+
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource GrayColor}"   
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Cliente.MainBillCheckoutPage">
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+            <Style x:Key="categoryLabel" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="22"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="categoryImage" TargetType="Image">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="160"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+
+            <DataTemplate x:Key="boladaoListTemplate">
+                <ViewCell>
+                    <StackLayout BackgroundColor="{Binding SelectedColor}" HeightRequest="40" Padding="16,0" Orientation="Horizontal">
+                        <Label Text="{Binding Label}" VerticalOptions="CenterAndExpand"   TextColor="{Binding SelectedTextColor}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Grid>
+
+        
+
+            
+            <StackLayout Padding="20">
+                <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="ic_voltar" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" x:Name="lblTitle" Text="CHECKOUT">
+                            </Label>
+                        </Grid>
+
+                        <StackLayout Padding="10,10">
+                            <Label Text="{translator:Translate lblHowWantToPay}" FontSize="Small" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center">
+                            </Label>
+                        </StackLayout>
+
+                        <!-- lista payment methods-->
+
+                        <StackLayout Spacing="0" x:Name="stkPaymentMethods" IsVisible="True" Margin="0,5,0,0">
+                            <ListView x:Name="listPaymentMethods" SeparatorVisibility="None" HasUnevenRows="True"  ItemTemplate="{StaticResource boladaoListTemplate}">
+
+                                <ListView.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Cash</x:String>
+                                        <x:String>Bill to room</x:String>
+                                        <x:String>Amex - 4343</x:String>
+                                        <x:String>Add credit card</x:String>
+                                    </x:Array>
+                                </ListView.ItemsSource>
+                            </ListView>
+
+
+
+                            <Grid HeightRequest="50" x:Name="grdAddCard" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#f9f9f9" VerticalOptions="EndAndExpand">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="OnAddCard_Tapped"
+                        NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                
+                            <BoxView HeightRequest="2" VerticalOptions="Start" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Color="Black" Opacity=".12"/>
+                            
+
+                                <Label Text="{translator:Translate textCartAddNewCard}" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black"
+                       Margin="10,4"/>
+                                <Label HorizontalOptions="EndAndExpand"  VerticalTextAlignment="Center" FontSize="18"   TextColor="Black" Grid.Column="1" Text=">"
+                       Margin="10,4"/>
+
+                            </Grid>
+                        </StackLayout>
+
+
+
+                        <Grid HeightRequest="60" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="Red" VerticalOptions="EndAndExpand" >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                        Tapped="OnCheckout_Tapped"
+                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="White" x:Name="btnSendOrder"
+                       Margin="10,4"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImage="bg_barraca"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.Cliente.ListCheckinsPage">
+    
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="bg_barraca"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Padding="20">
+
+                <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_menu" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate lblOrdersDoneUPPER}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" x:Name="lblFiltrar"></Label>
+                        </Grid>
+
+
+                        <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"
+                                RowHeight="100"
+                                SeparatorVisibility="None">
+
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="0,5,0,5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Spacing="0">
+                                                    <Label Text="{Binding CheckInCreatedStr}" TextColor="Gray" Style="{StaticResource list_dateString}"></Label>
+                                                    <Label Text="{Binding Company.Title}" Style="{StaticResource list_titleString}" TextColor="{StaticResource TextTitleColor}"></Label>
+                                                </StackLayout>
+
+                                                <StackLayout VerticalOptions="CenterAndExpand" Grid.Column="1">
+                                                    <StackLayout BackgroundColor="{Binding CheckinStatusColor}" Padding="3">
+                                                        <Label Text="{Binding CheckInNumberStr}" Style="{StaticResource list_dateString}" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                                                    </StackLayout>
+                                                    
+                                                </StackLayout>
+                                            </Grid>
+
+                                            <BoxView  Margin="0,10,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+
+
+                    </StackLayout>
+
+
+
+
+
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

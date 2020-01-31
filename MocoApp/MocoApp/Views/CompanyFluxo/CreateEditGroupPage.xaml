@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.CreateEditGroupPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10">
+
+
+                <Label Text="{translator:Translate lblTitle}" />
+                <Entry x:Name="txtName" />
+                <Label Text="{translator:Translate lblCurrentPosition}"/>
+                <Entry x:Name="txtPosition" Keyboard="Telephone" />
+
+                <Label Text="{translator:Translate lblTotalPositionsAvailable}"  x:Name="lblTotalPositions" FontSize="Small"/>
+
+                <Label Text="{translator:Translate lblAvailableToCustomers}" />
+                <Switch VerticalOptions="StartAndExpand" x:Name="swtActive" />
+
+            </StackLayout>
+            <Button VerticalOptions="EndAndExpand"  BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate alertSave}" x:Name="btnSave" Clicked="btnSave_Clicked"     ></Button>
+            <Button VerticalOptions="EndAndExpand"  BackgroundColor="White"  BorderColor="Red" TextColor="Red"   HorizontalOptions="FillAndExpand" Text="{translator:Translate btnDelet}" x:Name="btnDelete" Clicked="btnDelet_Clicked"     ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

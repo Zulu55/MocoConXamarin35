@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="com.oimoco" android:versionCode="5" android:versionName="1.8346">
+	<uses-sdk android:targetSdkVersion="28" android:minSdkVersion="22" />
+	<permission android:name="com.oimoco.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<application android:label="HiCharlie">
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="com.oimoco" />
+			</intent-filter>
+		</receiver>
+	</application>
+</manifest>

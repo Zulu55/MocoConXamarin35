@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.RequestCheckinByLocationPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml"  >
+                <ScrollView>
+                    <StackLayout>
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate lblToCheckin}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblName"></Label>
+                        </Grid>
+
+
+                        <StackLayout x:Name="stkOccupation">
+                            <Label TextColor="#555" Text="{translator:Translate textRoomNumber}"   FontSize="11"></Label>
+                            <!--<Entry x:Name="txtOccupation" Placeholder="{translator:Translate textNotGuestHotel}" Keyboard="Numeric"></Entry>-->
+                            <Entry x:Name="txtOccupation" Keyboard="Numeric"></Entry>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkQtd" IsVisible="False">
+                            <Label TextColor="#555" Text="{translator:Translate lblAmountOfPeople}" FontSize="12"></Label>
+                            <Entry x:Name="txtQtd" Keyboard="Numeric"></Entry>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkAlocationNumber" IsVisible="False">
+                            <Label TextColor="#555" Text="" x:Name="lblAllocation" FontSize="12"></Label>
+                            <!--<Entry x:Name="txtAllocationNumber" Placeholder="{translator:Translate lblNotOwnAny}" Keyboard="Numeric"></Entry>-->
+                            <Entry x:Name="txtAllocationNumber" Keyboard="Numeric"></Entry>
+
+                        </StackLayout>
+                        
+                        
+
+                        
+
+                        <StackLayout HorizontalOptions="End" Margin="0,15,0,0" x:Name="stkCk">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                            Tapped="OnOkTapped"
+                                            NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_ok" WidthRequest="32" ></Image>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </ScrollView>
+
+
+
+
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

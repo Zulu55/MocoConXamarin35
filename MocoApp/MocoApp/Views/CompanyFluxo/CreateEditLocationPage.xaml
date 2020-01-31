@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.CreateEditLocationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="10">
+
+                    <StackLayout >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped" 
+                                                NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Label Text="{translator:Translate lblChangeImage}" VerticalTextAlignment="Center" />
+
+                        <controls:CircleImage
+                        Aspect="AspectFill"     
+                        Grid.Column="0"   
+                        Margin="0,5,0,5"
+                        FillColor="#ccc"
+                        x:Name="imgProduct"
+                        Source="{Binding ImageUri}"
+                        HorizontalOptions="StartAndExpand" 
+                        WidthRequest="40" HeightRequest="40"></controls:CircleImage>
+
+
+                    </StackLayout>
+
+                    <Label Text="{translator:Translate lblTitle}" />
+                    <Entry x:Name="txtName" />
+
+                    <Label Text="{translator:Translate lblLocationMenuType}" />
+                    <Picker Title="{translator:Translate lblSelect}"  x:Name="pckLocationMenuType">
+                    </Picker>
+
+                    <Label Text="{translator:Translate lblLocationType}" />
+                    <Picker Title="{translator:Translate lblSelect}"  x:Name="pckLocationType">
+                    </Picker>
+
+                    <Label Text="{translator:Translate lblPrefix}" />
+                    <Entry x:Name="txtPrefixo"  />
+
+                    <Label Text="{translator:Translate lblCurrentPosition}"/>
+                    <Entry x:Name="txtPosition" Keyboard="Telephone" />
+
+                    <Label Text="{translator:Translate lblTotalPositionsAvailable}"  x:Name="lblTotalPositions" FontSize="Small"/>
+
+                    <Label Text="{translator:Translate lblAvailableToCustomers}" />
+                    <Switch VerticalOptions="StartAndExpand" x:Name="swtActive" />
+
+                </StackLayout>
+            </ScrollView>
+            <Button VerticalOptions="EndAndExpand"  BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate alertSave}" x:Name="btnSave" Clicked="btnSave_Clicked"     ></Button>
+            <Button VerticalOptions="EndAndExpand"  BackgroundColor="White"  BorderColor="Red" TextColor="Red"   HorizontalOptions="FillAndExpand" Text="{translator:Translate btnDelet}" x:Name="btnDelete" Clicked="btnDelet_Clicked"     ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

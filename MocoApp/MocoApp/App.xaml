@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<naylahCommon:BootStrapper xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:naylahCommon="clr-namespace:Naylah.Xamarin.Common;assembly=Naylah.Xamarin"
+             x:Class="MocoApp.App">
+  <Application.Resources>
+    <ResourceDictionary>
+
+      <Color
+      x:Key="BarracaColor">#f46c42</Color>
+      <Color
+      x:Key="TextTitleColor">#212121</Color>
+      <Color
+      x:Key="GrayColor">#a8a9a4</Color>
+      <Color
+      x:Key="HotelColor">#7aaede</Color>
+      <Color
+      x:Key="RestauranteColor">#fec500</Color>
+
+      <Color
+        x:Key="EsportesColor">#51c23f</Color>
+
+      <Style x:Key="menu_button" TargetType="Image">
+        <Setter Property="HeightRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="32"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="list_dateString" TargetType="Label">
+        <Setter Property="TextColor" Value="#ccc"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="16"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="list_descString" TargetType="Label">
+        <Setter Property="TextColor" Value="#898989"/>
+        <!--<Setter Property="LineBreakMode" Value="NoWrap"/>-->
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="18"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="list_titleString" TargetType="Label">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="LineBreakMode" Value="NoWrap"/>
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="20"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="list_descIcon" TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="30" Tablet="50"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      
+      <!-- dasdasd -->
+
+      <Style x:Key="image_action" TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="32" Tablet="64"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="HeightRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="32" Tablet="64"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="Aspect" Value="AspectFit"/>
+      </Style>
+
+      <Style x:Key="main_img" TargetType="Image">
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="150" Tablet="260"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="HeightRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="150" Tablet="260"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="main_header_grid" TargetType="Grid">
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="150" Tablet="260"/>
+          </Setter.Value>
+        </Setter>       
+      </Style>
+
+
+      <Style x:Key="main_img_stack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="150" Tablet="220"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="HeightRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="150" Tablet="220"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="main_img_buttons" TargetType="Image">
+        <Setter Property="WidthRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="48" Tablet="64"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="HeightRequest">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="48" Tablet="64"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="titleLabel" TargetType="Label">
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="18"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="descLabel" TargetType="Label">
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="16"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      
+          <Style x:Key="priceTitleLabel" TargetType="Label">
+        <Setter Property="FontSize">
+          <Setter.Value>
+            <OnIdiom x:TypeArguments="x:Double" Phone="18" Tablet="24"/>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+    </ResourceDictionary>
+  </Application.Resources>
+</naylahCommon:BootStrapper>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Empresa.CompanyDetailsPage">
+
+   <ContentPage.Content>
+       
+        <StackLayout Padding="20">
+            
+            <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                
+                <StackLayout>
+
+                    <ScrollView>
+                        
+                        <StackLayout>
+                            
+                            <Grid VerticalOptions="StartAndExpand"  Margin="0,10,0,10" >
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource menu_button}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                        Tapped="OnBackTapped"
+                                      NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout HorizontalOptions="Center" Grid.Column="1" Spacing="0">
+
+                                    <Grid Style="{StaticResource main_header_grid}" >
+                                        
+                                            <controls:CircleImage
+                                                      Aspect="AspectFill"        
+                                                      FillColor="#ccc"
+                                                      HorizontalOptions="CenterAndExpand" 
+                                                      x:Name="imgUser" Source="" Style="{StaticResource main_img}">
+                                            </controls:CircleImage>
+                                        
+                                  
+
+                                        <Image Source="" x:Name="imgHeart" VerticalOptions="Start" HorizontalOptions="End" Style="{StaticResource main_img_buttons}">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="OnFavoriteTapped"
+                                                    NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <Image Source="" x:Name="imgStar" VerticalOptions="End" HorizontalOptions="End" Aspect="AspectFill" Style="{StaticResource main_img_buttons}">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                         Tapped="OnRatingTapped"
+                                         NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                    </Grid>
+
+                                    <Label Text="" Margin="0,5,0,0" x:Name="lblAvaliacoes" HorizontalTextAlignment="Center"
+                                           Style="{StaticResource descLabel}" TextColor="Gray">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                    Tapped="OnRatingTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                </StackLayout>
+
+
+                                <StackLayout Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Center">
+                                    <Image Source="ic_detail_infos" VerticalOptions="Start" HorizontalOptions="EndAndExpand" Grid.Column="2" WidthRequest="40" HeightRequest="40">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                    Tapped="OnInfoTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label x:Name="lblInfoDistance" Style="{StaticResource descLabel}" HorizontalOptions="Center" HorizontalTextAlignment="Center" ></Label>
+                                </StackLayout>
+                                
+                            </Grid>
+
+                            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+                                <Label Text="" HorizontalTextAlignment="Center" Style="{StaticResource titleLabel}" x:Name="lblName" TextColor="{StaticResource BarracaColor}"></Label>
+                                <Label Text="" HorizontalTextAlignment="Center" Style="{StaticResource descLabel}" TextColor="{StaticResource TextTitleColor}" x:Name="lblAddress"></Label>
+                                <Label Text="" x:Name="lblPhone" HorizontalTextAlignment="Center" TextColor="{StaticResource TextTitleColor}" Style="{StaticResource descLabel}"></Label>
+
+                            </StackLayout>
+
+                            <Grid Margin="0,15,0,0">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <!--<ColumnDefinition Width="*"></ColumnDefinition>-->
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <!--<StackLayout Grid.Column="0">
+                                    <Image Source="" x:Name="imgCheckin" Grid.Column="2" Style="{StaticResource image_action}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnCheckinTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label TextColor="{StaticResource TextTitleColor}" Text="" LineBreakMode="TailTruncation" x:Name="lblCheckinText" Style="{StaticResource descLabel}" HorizontalTextAlignment="Center" />
+                                </StackLayout>-->
+
+                                <StackLayout Grid.Column="0">
+                                    <Image Source="ic_chat" x:Name="imgChat" Grid.Column="1" Style="{StaticResource image_action}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnChatTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblChat}" LineBreakMode="TailTruncation" Style="{StaticResource descLabel}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1">
+
+                                    <Image Source="ic_detail_pedido" Style="{StaticResource image_action}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnMeusPedidosTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblMyOrders}" Style="{StaticResource descLabel}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2">
+                                    <Image Source="ic_detail_share" Grid.Column="3" Style="{StaticResource image_action}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnShareTapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblShare}" LineBreakMode="TailTruncation" Style="{StaticResource descLabel}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+
+
+
+
+                            </Grid>
+
+                            <StackLayout>
+                                <BoxView HeightRequest="1" Margin="0,10,0,0" WidthRequest="500" Color="#ccc"></BoxView>
+                            </StackLayout>
+                            
+                            <Grid Margin="0,15,0,0" x:Name="grdDiferenciais" >
+                                <BoxView HeightRequest="1" WidthRequest="500" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" Color="#F5F5F5"></BoxView>
+
+                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="stkDiferenciais">
+                                    
+                                </StackLayout>-->
+                                
+
+                            </Grid>
+
+                            <StackLayout  x:Name="stkItens" HorizontalOptions="Start" Margin="0,10,0,0"  VerticalOptions="Start"/>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <ActivityIndicator  x:Name="actPiece" WidthRequest="26" HeightRequest="26" IsRunning="True" IsEnabled="True"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ScrollView>
+
+
+
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

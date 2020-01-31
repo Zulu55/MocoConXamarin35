@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lbCCompanyEdit}"
+             BackgroundColor="White"  
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.EditCompanyPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <StackLayout Margin="5">
+
+                        <Label Text="{translator:Translate lblTheFee}" FontSize="15"/>
+                        <Entry x:Name="txtTaxa" Keyboard="Numeric"  />
+
+                        <Label Text="{translator:Translate lblTipValue}" FontSize="15"/>
+                        <Entry x:Name="txtGorjeta" Keyboard="Numeric" />
+
+                        <Label Text="{translator:Translate lblPrefix}" x:Name="lblPrefix" FontSize="15" IsVisible="False"/>
+                        <Entry x:Name="txtPrefix"  IsVisible="False"/>
+
+                        <StackLayout
+                             Orientation="Horizontal">
+                            <Label
+                                 FontSize="15"
+                                 HorizontalOptions="FillAndExpand"
+                                 Text="{translator:Translate lblCompanyUseCardOnline}"
+                                 VerticalOptions="Center"/>
+                            <Switch
+                                 x:Name="chkCreditCardAllowed"
+                                 HorizontalOptions="End"
+                                 IsToggled="False"/>
+                        </StackLayout>
+
+                        <StackLayout
+                             Orientation="Horizontal">
+                            <Label
+                                 HorizontalOptions="FillAndExpand"
+                                 FontSize="15"
+                                 Text="{translator:Translate lblAllowChatOnlyForCustomers}"
+                                 VerticalOptions="Center"/>
+                            <Switch
+                                 x:Name="chkAllowChatOnlyForCustomers"
+                                 HorizontalOptions="End"
+                                 IsToggled="False"/>
+                        </StackLayout>
+                        
+                        <Label Text="{translator:Translate lblCurrency}" FontSize="15" />
+                        <Picker Title="{translator:Translate lblCurrency}" x:Name="pickerCurrency">
+                            <Picker.Items>
+                                <x:String>United States</x:String>
+                                <x:String>Brazil</x:String>
+                                <x:String>European</x:String>
+                                <x:String>Colombian</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Button
+                             BackgroundColor="Navy"
+                             BorderRadius="23"
+                             HeightRequest="46"
+                             Text="{translator:Translate alertSave}"
+                             TextColor="White"
+                             Clicked="btnSalvarValores"/>
+                        <Label Text="{translator:Translate lblImages}" FontSize="16" ></Label>
+                        <StackLayout x:Name="stkPhotos"></StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

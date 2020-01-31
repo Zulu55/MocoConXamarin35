@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+            BackgroundImage="bg_barraca"
+            xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.Cliente.EditClientProfilePage">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="bg_barraca"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ></Image>
+            <StackLayout>
+                <ScrollView>
+
+
+                    <StackLayout Padding="20">
+                        <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="White" x:Name="frmXaml">
+
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="160"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="ic_menu" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <Label Text="{translator:Translate lblEditProfileUPPER}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblFiltrar"></Label>
+                                </Grid>
+
+                                <!-- Imagem -->
+                                <StackLayout HorizontalOptions="Center">
+                                    <controls:CircleImage Margin="0,20,0,0"  Grid.Column="1"   Aspect="AspectFill"  VerticalOptions="Center"  HorizontalOptions="Center" x:Name="imgUser" Source="ic_avatar" WidthRequest="100" HeightRequest="100">
+                                    </controls:CircleImage>
+
+                                    <Image Source="ic_camera" WidthRequest="32">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="OnChangeImageTapped"
+                                                NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+
+
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ic_usuario" WidthRequest="22"></Image>
+                                        <Entry Placeholder="{translator:Translate lblName}" x:Name="txtName" Grid.Column="1"></Entry>
+                                    </Grid>
+                                </StackLayout>
+
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ic_usuario" WidthRequest="22"></Image>
+                                        <Entry Placeholder="{translator:Translate lblRegisterSurname}" x:Name="txtSurname" Grid.Column="1"></Entry>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="ic_email" WidthRequest="22"></Image>
+                                        <Entry Placeholder="{translator:Translate lblEmail}" Keyboard="Email" IsEnabled="False" x:Name="txtEmail" Grid.Column="1"></Entry>
+
+                                    </Grid>
+
+
+
+                                </StackLayout>
+
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="ic_cidade" WidthRequest="22"></Image>
+                                        <Entry Placeholder="{translator:Translate lblCity}" x:Name="txtCity" Grid.Column="1"></Entry>
+
+                                    </Grid>
+
+
+                                </StackLayout>
+
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="ic_fone" WidthRequest="22"></Image>
+                                        <Entry Placeholder="{translator:Translate lblPhone}" Keyboard="Telephone" x:Name="txtPhone"  Grid.Column="1"></Entry>
+                                    </Grid>
+
+                                </StackLayout>
+
+                                <StackLayout Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="ic_idioma" WidthRequest="22"></Image>
+                                        <Picker Title="{translator:Translate lblIdiom}" Grid.Column="1" x:Name="pckIdioma">
+                                        </Picker>
+
+                                    </Grid>
+                                </StackLayout>
+
+
+                                <Label TextColor="Blue" Text="{translator:Translate lblChangePassword}" Margin="0,10,0,0" FontAttributes="Italic">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                Tapped="OnAlterarSenhaTapped"
+                                                NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                </Label>
+
+
+
+                                <StackLayout HorizontalOptions="EndAndExpand" Margin="0,15,0,0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                Tapped="OnRegisterTapped"
+                                                NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="ic_ok" WidthRequest="32" ></Image>
+                                </StackLayout>
+                            </StackLayout>
+
+
+
+
+                            
+
+
+
+
+
+                        </Frame>
+                    </StackLayout>
+
+
+
+                </ScrollView>
+
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

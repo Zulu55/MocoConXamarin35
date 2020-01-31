@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            BackgroundImage="bg_barraca"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.HomePage">
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+            <Style x:Key="categoryLabel" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="17" Tablet="25"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="categoryImage" TargetType="Image">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="90" Tablet="250"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 25, 0, 0"  ></OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+
+        <Grid>
+            <Image Source="bg_barraca"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ></Image>
+            <StackLayout Padding="20">
+                <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+
+                    <Grid>
+
+
+                        
+
+                            <Image Source="ic_menu" HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource menu_button}" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnMenuTapped"
+                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <!--<Image Source="logo256" HorizontalOptions="CenterAndExpand" WidthRequest="72" HeightRequest="72" Grid.ColumnSpan="2"></Image>-->
+
+                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" ></RowDefinition>
+                                <RowDefinition Height="*" ></RowDefinition>
+                                <RowDefinition Height="*" ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            
+                            <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0"  >
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnHotelTapped"
+                                        NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="img_hoteis" Style="{StaticResource categoryImage}"/>
+                                <Label Text="{translator:Translate lblHotels}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource HotelColor}"></Label>
+                            </StackLayout>
+
+                            <StackLayout Spacing="0" Grid.Column="0" Margin="0,10,0,0" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnBarracasTapped"
+                                        NumberOfTapsRequired="1" />     
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="img_barracas" Style="{StaticResource categoryImage}" ></Image>
+                                <Label Text="{translator:Translate lblBeachs}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource BarracaColor}"></Label>
+                            </StackLayout>
+
+                            <StackLayout Spacing="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,10,0,0" Grid.Row="2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnRestauranteTapped"
+                                        NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="img_restaurantes" Style="{StaticResource categoryImage}" ></Image>
+                                <Label Text="{translator:Translate lblRestaurants}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource RestauranteColor}"></Label>
+                            </StackLayout>
+
+                        </Grid>
+                       
+
+
+
+                        <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1">
+                            
+                            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    --><!--<ColumnDefinition Width="*"></ColumnDefinition>--><!--
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+
+                                <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                            Tapped="OnHotelTapped"
+                            NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="img_hoteis" Style="{StaticResource categoryImage}"/>
+                                    <Label Text="{translator:Translate lblHotels}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource HotelColor}"></Label>
+                                </StackLayout>
+
+                                <StackLayout Spacing="0" Grid.Column="0" Margin="0,10,0,0" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                        Tapped="OnBarracasTapped"
+                        NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="img_barracas" Style="{StaticResource categoryImage}" ></Image>
+                                    <Label Text="{translator:Translate lblBeachs}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource BarracaColor}"></Label>
+                                </StackLayout>
+
+                                <StackLayout Spacing="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,10,0,0" Grid.Row="2">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                        Tapped="OnRestauranteTapped"
+                        NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="img_restaurantes" Style="{StaticResource categoryImage}" ></Image>
+                                    <Label Text="{translator:Translate lblRestaurants}" Margin="0,5,0,0" Style="{StaticResource categoryLabel}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="{StaticResource RestauranteColor}"></Label>
+                                </StackLayout>
+
+                               
+
+
+                            </Grid>
+
+                            
+                        </StackLayout>-->
+
+                     
+
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

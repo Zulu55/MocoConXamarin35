@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Empresa.CompanyOrderPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Padding="20">
+                <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                    <StackLayout>
+
+                        <ScrollView>
+                            <StackLayout>
+                                <Grid VerticalOptions="StartAndExpand"  Margin="0,0,0,10" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start"  Style="{StaticResource menu_button}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <StackLayout HorizontalOptions="Center" Grid.Column="1" Spacing="1">
+                                        <Grid Style="{StaticResource main_header_grid}" >
+                                            <controls:CircleImage
+                                                      Aspect="AspectFill"        
+                                                      FillColor="#ccc"
+                                                      HorizontalOptions="CenterAndExpand" 
+                                                      x:Name="imgUser" Source="" Style="{StaticResource main_img}">
+                                            </controls:CircleImage>
+
+                                            <Image Source="" x:Name="imgHeart" VerticalOptions="Start" HorizontalOptions="End" Style="{StaticResource main_img_buttons}">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                    Tapped="OnFavoriteTapped"
+                                                    NumberOfTapsRequired="1" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                            <Image Source="" x:Name="imgStar" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource main_img_buttons}">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                    Tapped="OnRatingTapped"
+                                      NumberOfTapsRequired="1" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+
+                                        </Grid>
+
+                                        <Label Text="" Margin="0,5,0,0" x:Name="lblAvaliacoes" HorizontalTextAlignment="Center" Style="{StaticResource descLabel}" TextColor="Gray">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                    Tapped="OnRatingTapped"
+                                      NumberOfTapsRequired="1" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                    </StackLayout>
+                                </Grid>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+                                    <Label Text="" HorizontalTextAlignment="Center" Style="{StaticResource titleLabel}" x:Name="lblName" TextColor="{StaticResource BarracaColor}"></Label>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,10,0,0" x:Name="stkAct" IsVisible="False">
+                                    <ActivityIndicator Color="{StaticResource BarracaColor}" x:Name="actPiece" WidthRequest="26" HeightRequest="26" IsRunning="False" IsEnabled="False"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label Text="" x:Name="lblProductName" Style="{StaticResource descLabel}" TextColor="{StaticResource TextTitleColor}"></Label>
+                                    <Label Text="" x:Name="lblProductDesc" Style="{StaticResource descLabel}" TextColor="Gray"></Label>
+                                </StackLayout>
+                                <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+
+                                <StackLayout
+                                    x:Name="stkObservation"
+                                    Margin="0,10,0,0">
+                                    <Label Text="{translator:Translate lblAnyObservation}"></Label>
+                                    <StackLayout BackgroundColor="White">
+                                        <StackLayout BackgroundColor="#ccc" Padding="1">
+                                            <Editor HeightRequest="100" BackgroundColor="White" x:Name="edtObs"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" x:Name="stkAddMore">
+                                    <Label Text="" x:Name="lblPriceUnitario" Style="{StaticResource descLabel}"></Label>
+                                    <Grid x:Name="grdAdd" HorizontalOptions="EndAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image x:Name="imgMinus" WidthRequest="44" Source="ic_menos">
+
+                                            <Image.WidthRequest>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="44" Tablet="80"/>
+                                            </Image.WidthRequest>
+
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="OnAddLessTapped"
+                                                    NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+
+                                        </Image>
+
+                                        <Label Text="1" Style="{StaticResource descLabel}" FontAttributes="Bold" VerticalTextAlignment="Center"  VerticalOptions="Center" x:Name="lblQtd" Grid.Column="1" ></Label>
+                                        <Image x:Name="imgPlus" WidthRequest="44" Source="ic_mais" Grid.Column="2">
+
+                                            <Image.WidthRequest>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="44" Tablet="80"/>
+                                            </Image.WidthRequest>
+
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="OnAddMoreTapped"
+                                                    NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                    </Grid>
+                                </StackLayout>
+
+                                <StackLayout x:Name="stkPriceTotal">
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                        <Label Text="" Style="{StaticResource priceTitleLabel}" x:Name="lblTotalPrice" HorizontalOptions="EndAndExpand" TextColor="Green"></Label>
+                                    </StackLayout>
+                                    <BoxView Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                </StackLayout>
+
+
+                                <StackLayout x:Name="stkEntrega" IsVisible="False">
+                                    <Label Style="{StaticResource priceTitleLabel}" TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblDelivery}"  Margin="5" />
+                                    <Picker Title="{translator:Translate lblSelectWhereToDelivery}" x:Name="pckDeliveries" ></Picker>
+                                </StackLayout>
+
+                                <Grid x:Name="grdConfirm" Margin="0,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="2">
+                                        <Image Source="ic_detail_checkin" Grid.Column="1" HorizontalOptions="Center">
+
+                                            <Image.WidthRequest>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="64" Tablet="128"/>
+                                            </Image.WidthRequest>
+
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                        Tapped="OnSolicitarTapped"
+                                      NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Label TextColor="{StaticResource TextTitleColor}" Text="{translator:Translate lblAdd}" Style="{StaticResource descLabel}" HorizontalTextAlignment="Center" />
+                                    </StackLayout>
+                                </Grid>
+
+                            </StackLayout>
+                        </ScrollView>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Grid HeightRequest="30" Padding="10" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#0dba6c" VerticalOptions="EndAndExpand" x:Name="grdCart" IsVisible="False">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnCart_Tapped"
+                        NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid BackgroundColor="#089656" VerticalOptions="CenterAndExpand" Padding="10,5,10,5" HorizontalOptions="StartAndExpand" >
+                    <Label x:Name="lblCartOrdersCount" Text="0"  HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontSize="16" TextColor="White"></Label>
+                </Grid>
+                <Label Text="My Cart" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16" TextColor="White" Grid.Column="1"></Label>
+                <Label HorizontalOptions="EndAndExpand"  VerticalTextAlignment="Center" x:Name="lblCartTotalPrice" FontSize="17"  LineBreakMode="TailTruncation" FontAttributes="Bold" TextColor="White" Grid.Column="2" Text="$22"></Label>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

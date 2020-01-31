@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblCompanies}"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.ListCompanyPage">
+    <ContentPage.Content>
+        <StackLayout>
+          
+
+                <ListView
+                    x:Name="listView"
+                    HasUnevenRows="True"
+                    
+                    SeparatorVisibility="None">
+                               
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout >
+                                  
+                                        <StackLayout Padding="10,10,10,0">
+                                    <Label Text="{Binding Title}" Style="{StaticResource list_titleString}" TextColor="{StaticResource TextTitleColor}"></Label>
+                                    <Label Text="{Binding Address}" Style="{StaticResource list_descString}" TextColor="#ccc"></Label>
+                                        </StackLayout>
+                                                
+                                    <BoxView  Margin="0,2,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                </StackLayout>
+                                            
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <Button VerticalOptions="EndAndExpand" IsEnabled="True" BackgroundColor="#5862F4" TextColor="White"   HorizontalOptions="FillAndExpand" Text="{translator:Translate alertSelectCompany}" x:Name="btnAdd" Clicked="btnAdd_Clicked"     ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

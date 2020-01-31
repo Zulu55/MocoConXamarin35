@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblOrderDetails}"
+             BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.OrderDetailPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="titleLabel" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="22"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+            <Style x:Key="label1" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="16"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="LineBreakMode" Value="NoWrap" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Opacity" Value="0.54" />
+            </Style>
+
+            <Style x:Key="button_icon" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="48" Tablet="96"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </ResourceDictionary>
+        
+        
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ScrollView>
+
+                <StackLayout>
+                    <!--<Label Text="Cliente" TextColor="Black" FontAttributes="Bold" FontSize="16" Margin="10,5,0,0"></Label>-->
+                    <Frame Padding="6" BackgroundColor="#FFFEEE">
+                        <Grid Padding="10" ColumnSpacing="16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"                                                                      
+                                        FillColor="#ccc"
+                                        Source="{Binding Client.Photo}"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="60" HeightRequest="60">
+                            </controls:CircleImage>
+
+
+                            <StackLayout Spacing="2" Grid.Column="1">
+                                <Label Text="{Binding Client.Name}" 
+                                   LineBreakMode="NoWrap" 
+                                   TextColor="{StaticResource TextTitleColor}" 
+                                   Style="{StaticResource titleLabel}"
+                                   FontSize="20"></Label>
+
+                                <Label Text="{Binding Client.Email}"  
+                                   Style="{StaticResource label1}"
+                                   Opacity="0.35"
+                                   FontSize="14"></Label>
+
+                                <Label Text="{Binding Checkin.OccupationStr}" 
+                                   Style="{StaticResource label1}" 
+                                   FontSize="14"></Label>
+
+                                <Label Text="{Binding Checkin.QtdPeopleStr}" 
+                                   Style="{StaticResource label1}"  
+                                   FontSize="14"></Label>
+
+                                <Label Text="{Binding Checkin.PrefixAllocation}" 
+                                   Style="{StaticResource label1}"  
+                                   FontSize="14"></Label>
+
+                                <Label Text="{Binding CheckinSub.Location.Name}" 
+                                   Style="{StaticResource label1}"  
+                                   FontSize="14"></Label>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="FillAndExpand" Grid.Column="2">
+                                <Label Text="{Binding OrderCreatedAtStr}" 
+                                   FontSize="10" 
+                                   TextColor="Black"
+                                   Opacity="0.35"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="Center" Margin="0,6"></Label>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                                    <Image Source="{Binding OrderStatusIcon}" WidthRequest="40" HeightRequest="40"/>
+                                    <Label Text="{Binding OrderStatusStr}" 
+                                       FontSize="14"
+                                       Opacity="0.83"
+                                       HorizontalTextAlignment="Center" 
+                                       FontAttributes="Bold" 
+                                       TextColor="{Binding OrderStatusColor}"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Image Source="ic_clock" WidthRequest="16"></Image>
+                                    <Label Text="{Binding ShowTimeOrderValue}" VerticalOptions="Center"  Style="{StaticResource list_dateString}" HorizontalTextAlignment="Center" TextColor="#555"></Label>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Grid>
+
+                    </Frame>
+
+                    <StackLayout>
+
+                        <!-- stk produto -->
+                        <StackLayout Padding="6">
+
+                            <!--<Label Text="Produto" TextColor="Black" FontAttributes="Bold" FontSize="16" Margin="10,0,0,0" ></Label>-->
+
+                            <Grid Padding="10,6,10,0" ColumnSpacing="16" RowSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"                                                                      
+                                        FillColor="#ccc"
+                                        Source="{Binding Product.ImageUri}"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="40" HeightRequest="40">
+                                </controls:CircleImage>
+
+                                <StackLayout Spacing="0" Grid.Column="1" VerticalOptions="Center">
+                                    <Label Text="{Binding Product.Name}" LineBreakMode="NoWrap" 
+                                       TextColor="{StaticResource TextTitleColor}" 
+                                       Style="{StaticResource titleLabel}" FontAttributes="Bold"></Label>
+
+                                    <!-- Text="{Binding Product.Description}" -->
+
+                                    <Label Text="{Binding Product.Description}" 
+                                       LineBreakMode="NoWrap" 
+                                       TextColor="#898989" 
+                                       FontSize="14"></Label>
+
+                                </StackLayout>
+
+                                <!-- grid valores-->
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Spacing="0" Grid.Column="0" VerticalOptions="Start">
+
+                                        <Label Text="{translator:Translate lblQuantity}" 
+                                       LineBreakMode="NoWrap" 
+                                       HorizontalTextAlignment="Start" 
+                                       TextColor="{StaticResource TextTitleColor}" 
+                                       FontSize="14"></Label>
+
+                                        <Label Text="{Binding ProductQuantity}" 
+                                       HorizontalTextAlignment="Start" 
+                                       LineBreakMode="NoWrap" 
+                                       TextColor="#898989" 
+                                       FontSize="16"></Label>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="0" Grid.Column="1" VerticalOptions="Start">
+                                        <Label Text="{translator:Translate lblUnitaryValue}" 
+                                       LineBreakMode="NoWrap" 
+                                       HorizontalTextAlignment="Start" 
+                                       TextColor="{StaticResource TextTitleColor}" 
+                                       FontSize="14"></Label>
+
+                                        <Label Text="{Binding ProductPriceStr}" 
+                                       HorizontalTextAlignment="Start" 
+                                       LineBreakMode="NoWrap" 
+                                       TextColor="#898989" 
+                                       FontSize="16"></Label>
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Spacing="0" Grid.Column="2">
+
+                                        <BoxView WidthRequest="1" Color="Black" Opacity="0.1" />
+
+                                        <StackLayout Padding="0" Spacing="0" Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+
+                                            <Label Text="{translator:Translate lblTotal}" 
+                                                   LineBreakMode="NoWrap" 
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="{StaticResource TextTitleColor}" 
+                                       FontSize="14"></Label>
+
+                                            <Label Text="{Binding TotalPriceStrMoney}" 
+                                       HorizontalTextAlignment="End" 
+                                       LineBreakMode="NoWrap" 
+                                       TextColor="#898989" 
+                                       FontSize="16" FontAttributes="Bold"></Label>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                        <BoxView HeightRequest="1" Color="Black" Opacity="0.1" WidthRequest="500"/>
+
+                        <!-- stk obs -->
+                        <StackLayout Padding="6" Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                <Label Text="{translator:Translate lblObservation}" TextColor="Black" FontAttributes="Bold" FontSize="16" Margin="10,0,0,0"></Label>
+                                <Label Text="{Binding Observation}"
+                                       Margin="10,0,0,6" 
+                                       TextColor="#898989" FontSize="14"></Label>
+                            </StackLayout>
+                            <StackLayout x:Name="stkCanceledReason" 
+                                         IsVisible="False" 
+                                         Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                <Label Text="{translator:Translate lblReasonForCancellationTwoPoints}" TextColor="Red" FontAttributes="Bold" FontSize="16" Margin="10,0,0,0"></Label>
+                                <Label Text="{Binding ReasonDenied}" Margin="10,0,0,0" TextColor="Red" FontSize="14"></Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!-- stk same answer-->
+                        <StackLayout
+                             Padding="6"
+                             Orientation="Horizontal">
+
+                            <Label
+                                 HorizontalOptions="FillAndExpand"
+                                 Text="{translator:Translate lblSameReasonForAllItems}"
+                                 VerticalOptions="Center"/>
+                            <Switch
+                                 x:Name="ckbSameAnswer"
+                                 HorizontalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="#f9f9f9">
+                        <!-- grid buttons -->
+                        <Grid Padding="10,16,10,6">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Button 
+                            FontSize="12" 
+                            BorderWidth="2" 
+                            BackgroundColor="White" 
+                            BorderColor="#57B447" 
+                            StyleId="5" 
+                            Text="{translator:Translate btnDelivered}"
+                            TextColor="#57B447"
+                            Grid.Row="1" 
+                            Grid.Column="0"  
+                            Clicked="btnUpdateStatatus_Clicked" 
+                            x:Name="btnEntregue">
+
+                                <Button.Image>
+                                    <OnIdiom x:TypeArguments="FileImageSource" Phone="ic_entregue_phone" Tablet="ic_entregue"/>
+                                </Button.Image>
+
+                            </Button>
+
+                            <Button Image="ic_andamento" 
+                            FontSize="12" 
+                            BorderWidth="2" 
+                            BackgroundColor="White" 
+                            BorderColor="#FD5900" 
+                            StyleId="3" 
+                            Text="{translator:Translate btnInProgress}" 
+                            TextColor="#FD5900"
+                            Grid.Row="0" 
+                            Grid.Column="1" 
+                            Clicked="btnUpdateStatatus_Clicked" 
+                            x:Name="btnAndamento">
+
+                                <Button.Image>
+                                    <OnIdiom x:TypeArguments="FileImageSource" Phone="ic_andamento_phone" Tablet="ic_andamento"/>
+                                </Button.Image>
+
+                            </Button>
+
+                            <Button Image="ic_aceito" 
+                            FontSize="12" 
+                            BorderWidth="2" 
+                            BackgroundColor="White" 
+                            BorderColor="#5762F3" 
+                            StyleId="2" 
+                            Text="{translator:Translate lblAccept}" 
+                            TextColor="#5762F3"
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            Clicked="btnUpdateStatatus_Clicked" 
+                            x:Name="btnAccept">
+
+                                <Button.Image>
+                                    <OnIdiom x:TypeArguments="FileImageSource" Phone="ic_aceito_phone" Tablet="ic_aceito"/>
+                                </Button.Image>
+
+                            </Button>
+
+                            <Button Image="ic_cancelado" 
+                            FontSize="12" 
+                            BorderWidth="2" 
+                            BackgroundColor="White" 
+                            BorderColor="#fe0501" 
+                            StyleId="4" 
+                            Text="{translator:Translate alertCancel}"
+                            TextColor="#fe0501"
+                            Grid.Row="1" 
+                            Grid.Column="1" 
+                            Clicked="btnUpdateStatatus_Clicked" 
+                            x:Name="btnCancelado">
+
+                                <Button.Image>
+                                    <OnIdiom x:TypeArguments="FileImageSource" Phone="ic_cancelado_phone" Tablet="ic_cancelado"/>
+                                </Button.Image>
+
+                            </Button>
+
+                        </Grid>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                
+
+            </ScrollView>
+
+            
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

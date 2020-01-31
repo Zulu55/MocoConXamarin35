@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{translator:Translate lblCheckinPending}"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             BackgroundColor="White"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.CompanyFluxo.AcceptDeclineCheckinPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10">
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <controls:CircleImage
+                                        Aspect="AspectFill"     
+                                        Grid.Column="0"                                                                      
+                                        FillColor="#ccc"
+                                        Source="{Binding Client.Photo}"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="40" HeightRequest="40">
+                    </controls:CircleImage>
+
+
+                    <StackLayout Spacing="0" Grid.Column="1">
+                        <Label Text="{Binding Client.Name}" LineBreakMode="NoWrap" TextColor="{StaticResource TextTitleColor}" FontSize="16"></Label>
+                        <Label Text="{Binding Client.Email}" LineBreakMode="NoWrap" TextColor="#898989" FontSize="12"></Label>
+                        <Label Text="{Binding LocationName}" LineBreakMode="NoWrap" TextColor="#898989" FontSize="12"></Label>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="EndAndExpand" Grid.Column="2" Margin="0,0,2,0">
+                        <Label Text="{Binding CheckInCreatedStr}" HorizontalTextAlignment="Center" FontSize="10" TextColor="#ccc"></Label>
+                        <Label Text="{Binding CheckInNumberStr}" FontSize="12" HorizontalTextAlignment="Center" TextColor="{Binding ClientCompanyStatusColor}"></Label>
+                    </StackLayout>
+
+
+                </Grid>
+                <StackLayout x:Name="stkhaOccupation" IsVisible="False">
+                    <Label x:Name="lblAloc"  Text="{translator:Translate lblRoomToPoints}" />
+                    <Entry x:Name="txtAlocation" Text="{Binding Occupation}" Keyboard="Numeric"/>
+                </StackLayout>
+                <Label x:Name="lblPeopleQtd" Text="{translator:Translate lblTotalOfPeople}" />
+                <Entry x:Name="txtPeopleQtd" Text="{Binding ClientQuantity}" Keyboard="Numeric"></Entry>
+
+                <StackLayout IsVisible="False" x:Name="stkAllocation">
+                    <Label Text="{Binding PrefixAllocation}" />
+                    <Entry x:Name="txtAllocation" Text="{Binding AllocationNumber}" ></Entry>
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+            <StackLayout  HorizontalOptions="FillAndExpand" Padding="10" x:Name="stkBtuttonOrder" >
+                <Button Image="" x:Name="btnAceitar" Margin="10,0,10,0" FontSize="12"  BorderWidth="1" BorderColor="#196aff" BackgroundColor="#196aff" BorderRadius="10" TextColor="White" StyleId="5" Text="{translator:Translate lblAccept}" Grid.Row="0" Grid.Column="0"     Clicked="btnAddClient_Clicked" />
+                <Button Image="" x:Name="btnRejeitar" Margin="10,0,10,0"  FontSize="12" BorderWidth="1" BorderColor="Red" BackgroundColor="White" BorderRadius="10" TextColor="Red" StyleId="3" Text="{translator:Translate lblReject}" Grid.Row="0" Grid.Column="1" Clicked="btnDecline_Clicked"  />
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

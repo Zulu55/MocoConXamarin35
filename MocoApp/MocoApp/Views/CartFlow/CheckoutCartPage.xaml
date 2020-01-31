@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:local="clr-namespace:MocoApp.Views.CartFlow"
+             x:Class="MocoApp.Views.CartFlow.CheckoutCartPage"
+             BackgroundColor="#eee">
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+            <Style x:Key="categoryLabel" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="22"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="categoryImage" TargetType="Image">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="160"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+            
+            <DataTemplate x:Key="boladaoListTemplate">
+                <ViewCell>
+                    <StackLayout BackgroundColor="{Binding SelectedColor}" HeightRequest="40" Padding="16,0" Orientation="Horizontal">
+                        <Label Text="{Binding Label}" VerticalOptions="CenterAndExpand"   TextColor="{Binding SelectedTextColor}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 25, 0, 0"  ></OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+
+            <ScrollView>
+
+                <StackLayout Spacing="0">
+
+                    <StackLayout BackgroundColor="White" Padding="16,4">
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image x:Name="imgBack" Source="ic_voltar_restaurante">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnContOnBackinue_Tapped"
+                                        NumberOfTapsRequired="1" />         
+                                </Image.GestureRecognizers>
+
+                            </Image>
+
+                            <Label Style="{StaticResource headerLabel}" x:Name="lblHeader" Grid.Column="1" Text="{translator:Translate textCartCheckout}" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" ></Label>
+
+                            <!-- so pra conferir a data q foi selecionada -->
+                                <Label x:Name="debugDate" Text="Selected date: " Grid.Column="1" IsVisible="False"/>
+
+                            <controls:CircleImage
+                                                      FillColor="#ccc"
+                                Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" VerticalOptions="Center"
+                                                        Grid.Column="2"
+                                                   Source="{Binding Location.ImageUri, Mode=TwoWay}" Style="{StaticResource categoryImage}">
+                            </controls:CircleImage>
+
+                        </Grid>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="White" Padding="16,4">
+
+
+                        <!--<StackLayout>
+                            <Label FontSize="Small" Text="{Binding Company.Title}"/>
+                            <Label FontSize="Small" Text="{Binding Location.Name}"/>
+                            <Label FontSize="Small" Text="{Binding Checkin.OccupationStr}"/>
+                            <Label FontSize="Small" Text="{Binding Checkin.PrefixAllocation}"/>
+                        </StackLayout>-->
+
+                        <StackLayout>
+                            <Label FontSize="Small"  x:Name="lblCompanyTitle"/>
+                            <Label FontSize="Small"  x:Name="lblLocationName"/>
+                            <Label FontSize="Small" x:Name="lblOccupationName"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <DatePicker x:Name="invisibleDatePicker" IsVisible="False"/>
+
+                    <BoxView HeightRequest="5" WidthRequest="500" Color="#eee"></BoxView>
+
+                    
+                    <!-- now order time -->
+                    <StackLayout Spacing="0" IsVisible="False" x:Name="stkTimes">
+                        
+                        <StackLayout BackgroundColor="White" HeightRequest="48" Padding="16,0">
+                            <Label Text="{translator:Translate textCartTimeToOrder}" Style="{StaticResource headerLabel}"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="orderTimeASAPStack" BackgroundColor="{Binding SelectedColor}" HeightRequest="40" Padding="16,0" Orientation="Horizontal">
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ASAP_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            
+                            <Label Text="{Binding Label}" VerticalOptions="CenterAndExpand"   TextColor="{Binding SelectedTextColor}"/>
+                        </StackLayout>
+
+                        <BoxView HeightRequest="0.5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Color="Black" Opacity="0.02"/>
+
+                        <StackLayout x:Name="orderTimePickerStack" BackgroundColor="{Binding SelectedColor}" HeightRequest="40" Padding="16,0" Orientation="Horizontal">
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TimePicker_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            
+                            <Label Text="{Binding Label}" VerticalOptions="CenterAndExpand"   TextColor="{Binding SelectedTextColor}" IsVisible="{Binding LabelVisible}"/>
+                            
+                            <TimePicker x:Name="hourPicker" FontSize="Micro" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextColor="{Binding SelectedTextColor}" IsVisible="{Binding HourVisible}"/>
+
+                            <DatePicker x:Name="dtDate" FontSize="Micro" IsVisible="{Binding HourVisible}"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                    
+                    <!--#region lista order time-->
+                    
+                 
+
+                    <!-- lista payment options -->
+                    <ListView x:Name="listPaymentOptions" SeparatorVisibility="None" HasUnevenRows="True" ItemTemplate="{StaticResource boladaoListTemplate}" Margin="0,5,0,0">
+
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Keep Bill Open - Pay Layter</x:String>
+                                <x:String>Close Bill - Pay now</x:String>
+                            </x:Array>
+                        </ListView.ItemsSource>
+
+                        <ListView.Header>
+                            <StackLayout BackgroundColor="White" HeightRequest="48" Padding="16,0">
+                                <Label Text="{translator:Translate textCartPaymentOptions}" Style="{StaticResource headerLabel}"/>
+                            </StackLayout>
+                        </ListView.Header>
+
+                    </ListView>
+
+                    <!-- lista payment methods-->
+                    <StackLayout Spacing="0" x:Name="stkPaymentMethods" IsVisible="False" Margin="0,5,0,0">
+                        <ListView x:Name="listPaymentMethods" SeparatorVisibility="None" HasUnevenRows="True"  ItemTemplate="{StaticResource boladaoListTemplate}">
+
+                            <ListView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Cash</x:String>
+                                    <x:String>Bill to room</x:String>
+                                    <x:String>Amex - 4343</x:String>
+                                    <x:String>Add credit card</x:String>
+                                </x:Array>
+                            </ListView.ItemsSource>
+
+                            <ListView.Header>
+                                <StackLayout BackgroundColor="White" HeightRequest="48" Padding="16,0">
+                                    <Label Text="{translator:Translate textCartPaymentMethods}" Style="{StaticResource headerLabel}"/>
+                                </StackLayout>
+                            </ListView.Header>
+
+                        </ListView>
+
+                      
+
+                        <Grid HeightRequest="50" x:Name="grdAddCard" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#f9f9f9" VerticalOptions="EndAndExpand" >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                        Tapped="OnAddCard_Tapped"
+                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <!--<BoxView HeightRequest="2" VerticalOptions="Start" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Color="Black" Opacity=".12"/>-->
+
+                            <Label Text="{translator:Translate textCartAddNewCard}" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black"
+                       Margin="10,4"/>
+                            <Label HorizontalOptions="EndAndExpand"  VerticalTextAlignment="Center" FontSize="18"   TextColor="Black" Grid.Column="1" Text=">"
+                       Margin="10,4"/>
+
+                        </Grid>
+                    </StackLayout>
+                    
+                    
+                    <!-- Totals -->
+                    <StackLayout BackgroundColor="White" HeightRequest="48" Padding="16,0" Margin="0,5,0,0">
+                        <Label Text="{translator:Translate textCartSendOrder}" Style="{StaticResource headerLabel}"/>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="White" Padding="16,0">
+
+                        <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                    <Label Text="{translator:Translate lblSubTotal}" 
+                                            
+                                      
+                                            VerticalTextAlignment="Center"/>
+
+                                    <Label 
+                                            VerticalTextAlignment="Center" 
+                                            x:Name="lblSubTotal" 
+                                            HorizontalOptions="EndAndExpand" 
+                                            TextColor="#555555">
+                                            
+                                        <Label.FontSize>
+                                            <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                        </Label.FontSize>
+                                            
+                                    </Label>
+                         </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout VerticalOptions="Center">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="OnTipsTapped"
+                                            NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label Text="{translator:Translate lblTips}" 
+                                                       x:Name="lblTipTitle" 
+                                                        VerticalTextAlignment="Center"></Label>
+
+                                    <Label FontSize="Micro" Text="{translator:Translate lblTapToAlter}" 
+                                                     VerticalTextAlignment="Center"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                            <Label Text="" VerticalTextAlignment="Center" 
+                                               x:Name="lblTip"  HorizontalOptions="EndAndExpand" TextColor="#555">
+
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                </Label.FontSize>
+
+                            </Label>
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{translator:Translate lblTaxs}" 
+                                                            x:Name="lblTaxsTitle" 
+                                                            VerticalTextAlignment="Center"></Label>
+
+                            <Label Text="{translator:Translate lblMoneyPlaceholder}" 
+                                                            VerticalTextAlignment="Center" 
+                                                            x:Name="lblTax" 
+                                   TextColor="#555555"
+                                                            HorizontalOptions="EndAndExpand" 
+                                                            >
+
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="22"/>
+                                </Label.FontSize>
+
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{translator:Translate lblTotal}"   VerticalTextAlignment="Center">
+
+                                    <Label.FontSize>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="22"/>
+                                    </Label.FontSize>
+
+                                </Label>
+                                <Label  Margin="2,3,2,0" VerticalTextAlignment="Center" TextColor="Green"  HorizontalOptions="EndAndExpand" Text="{Binding TotalBill}">
+
+                                    <Label.FontSize>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="18" Tablet="24"/>
+                                    </Label.FontSize>
+
+                                </Label>
+                            </StackLayout>
+
+                        </StackLayout>
+
+               
+                        
+                        
+                    </StackLayout>
+              
+
+                </StackLayout>
+
+            </ScrollView>
+
+            
+
+            <Grid HeightRequest="60" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#0dba6c" VerticalOptions="EndAndExpand" >
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnCheckout_Tapped"
+                        NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!--<BoxView HeightRequest="2" VerticalOptions="Start" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Color="Black" Opacity=".12"/>-->
+
+                <Label Text="{translator:Translate textCartSendOrder}" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="White"
+                       Margin="10,4"/>
+                <Label HorizontalOptions="EndAndExpand"  VerticalTextAlignment="Center" FontSize="18"  FontAttributes="Bold" TextColor="White" Grid.Column="1" Text="{Binding TotalBill}"
+                       Margin="10,4"/>
+
+            </Grid>
+        </StackLayout>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

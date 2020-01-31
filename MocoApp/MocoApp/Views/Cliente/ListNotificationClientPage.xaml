@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImage="bg_barraca"         
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.Cliente.ListNotificationClientPage">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="bg_barraca"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ></Image>
+            <StackLayout Padding="20">
+
+
+                <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_menu" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate lblNotificationsUPPER}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblFiltrar"></Label>
+                        </Grid>
+
+
+                        <ListView
+                                x:Name="listView"
+                                HasUnevenRows="True"                                
+                                SeparatorVisibility="None">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="0,5,0,5">
+                                            
+                                                <StackLayout Spacing="0">
+                                                <Label Text="{Binding Title}" TextColor="#555" Style="{StaticResource list_titleString}"></Label>
+                                                <Label Text="{Binding Body}" Style="{StaticResource list_descString}" TextColor="Gray"></Label>
+                                                </StackLayout>
+
+                                            <BoxView  Margin="0,10,0,0" Color="#eee" HeightRequest="1" WidthRequest="500" />
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+
+
+                    </StackLayout>
+
+
+
+
+
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

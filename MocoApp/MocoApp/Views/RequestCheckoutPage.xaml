@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.RequestCheckoutPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml"  >
+                <ScrollView>
+                    <StackLayout>
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="160"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{translator:Translate textRequestCheckout}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblName"></Label>
+                        </Grid>
+
+
+                        <StackLayout x:Name="stkOccupation" IsVisible="True">
+                            <Label TextColor="Gray" Text="{translator:Translate textRoomNumber}"  FontSize="11"></Label>
+                            <Entry x:Name="txtOccupation" Placeholder="{translator:Translate textNotGuestHotel}" Keyboard="Numeric"></Entry>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkLocations" IsVisible="False">
+                            <Label FontSize="12" TextColor="Black"  Margin="0,10,0,10" Text="{translator:Translate lblViewLocations}" ></Label>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center"  Margin="0,15,0,0" x:Name="stkCk">
+                            <Label x:Name="lblCheckOut" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="12"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                            Tapped="OnCancelTapped"
+                                            NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="ic_detail_checkout" WidthRequest="32" ></Image>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </ScrollView>
+
+
+
+
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

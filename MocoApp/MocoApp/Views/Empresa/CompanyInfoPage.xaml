@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.Empresa.CompanyInfoPage">
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+            <Style x:Key="infoText" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="20"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="infoItem" TargetType="Image">
+                <Setter Property="WidthRequest">
+                    <Setter.Value >
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="40"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml" Padding="0" >
+                <ScrollView>
+                    <StackLayout>
+                    <Grid Padding="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="160"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                                    Tapped="OnBackTapped"
+                                                        NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Label Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" x:Name="lblName"></Label>
+                    </Grid>
+
+
+                    <Grid Padding="30,10,10,10" HorizontalOptions="CenterAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                        <Image Source="ic_cidade" Style="{StaticResource infoItem}"></Image>
+                        <Label Style="{StaticResource infoText}"  x:Name="lblAddress" VerticalTextAlignment="Center" VerticalOptions="Center" Grid.Column="1"></Label>
+                            <!--<maps:Map Grid.Column="2"
+                                  x:Name="MyMap"
+                                  HorizontalOptions ="EndAndExpand"
+                                  WidthRequest="80"
+                                  HeightRequest="80"
+                                  IsShowingUser="true"
+                                  MapType="Street"
+                                />-->          
+                        </Grid>
+
+                    <Grid Padding="30,0,0,10" HorizontalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_cel" Style="{StaticResource infoItem}"></Image>
+                            <Label Style="{StaticResource infoText}" x:Name="lblPhone" Grid.Column="1">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+
+                        <Label Margin="25,10,15,10" x:Name="lblDescription" Style="{StaticResource infoText}" LineBreakMode="WordWrap" Text=""></Label>
+
+                    <BoxView HeightRequest="1" WidthRequest="500" Color="#ccc"></BoxView>
+                    <Grid Margin="10,10,0,0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_clock" Style="{StaticResource infoItem}"></Image>
+                            <Label Style="{StaticResource infoText}"  VerticalTextAlignment="Center" Text="{translator:Translate lblHoursAttenUPPER}" Grid.Column="1"></Label>
+                    </Grid>
+                    
+                    <Grid Margin="10,5,5,5" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="21"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                            <Label Style="{StaticResource infoText}" Text="" x:Name="lblHour" Grid.Column="1"></Label>
+                    </Grid>
+
+                        <BoxView HeightRequest="1" WidthRequest="500" Color="#ccc"></BoxView>
+                        <Grid Margin="10,10,0,0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_galery" Style="{StaticResource infoItem}"></Image>
+                            <Label Style="{StaticResource infoText}"  VerticalTextAlignment="Center" Text="{translator:Translate lblPhotoUPPER}" Grid.Column="1"></Label>
+                        </Grid>
+
+                        <Grid Margin="5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <StackLayout Grid.Column="1" x:Name="stkFotos" Padding="15,5,10,15">
+
+                            </StackLayout>
+
+                        </Grid>
+
+
+                        <BoxView HeightRequest="1" WidthRequest="500" Color="#ccc"></BoxView>
+                    <Grid Margin="10,10,0,0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                            <Image Source="ic_card" Style="{StaticResource infoItem}"/>
+                            <Label Style="{StaticResource infoText}"  VerticalTextAlignment="Center" Text="{translator:Translate lblPaymentFormUPPER}" Grid.Column="1"/>
+                        </Grid>
+                    
+                    <Grid Margin="5,5,5,10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="21"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackLayout Grid.Column="1" x:Name="stkPayments">
+                            
+                        </StackLayout>
+
+                    </Grid>
+
+        
+
+
+
+
+
+                </StackLayout>
+                </ScrollView>
+
+
+
+
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

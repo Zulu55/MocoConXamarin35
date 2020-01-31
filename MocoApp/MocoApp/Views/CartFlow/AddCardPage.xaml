@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MocoApp.Views.CartFlow.AddCardPage"
+             BackgroundColor="#eee">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+        </ResourceDictionary>
+
+           
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 25, 0, 0"  ></OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout Padding="20">
+                <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                    <StackLayout>
+
+                    
+                            <StackLayout>
+                                <Grid VerticalOptions="StartAndExpand"  Margin="0,0,0,10" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="ic_voltar" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                        Tapped="OnContOnBackinue_Tapped"
+                                      NumberOfTapsRequired="1" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+
+
+
+
+                                </Grid>
+
+                                <StackLayout BackgroundColor="White" Padding="5">
+                                    <Label Text="Name"></Label>
+                                    <Entry  x:Name="txtCardName"></Entry>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Card Number" VerticalTextAlignment="Center"></Label>
+                                        <Label x:Name="lblBrand" VerticalTextAlignment="Center" TextColor="Green" FontSize="Small"></Label>
+                                    </StackLayout>
+                                    <Entry Keyboard="Numeric" Placeholder="" Unfocused="TxtCardNumber_Unfocused" x:Name="txtCardNumber"></Entry>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition  Width="*"></ColumnDefinition>
+                                            <ColumnDefinition  Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout>
+                                            <Label Text="Exp. Date"></Label>
+                                            <Entry x:Name="txtExp" Keyboard="Numeric" TextChanged="TxtExp_TextChanged" Placeholder="MM/YYYY"></Entry>
+                                        </StackLayout>
+                                        
+
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="CVV"></Label>
+                                            <Entry x:Name="txtcvv" Keyboard="Numeric" Placeholder="123"></Entry>
+                                        </StackLayout>
+
+                                    </Grid>
+
+
+                                    <Label Text="Country"></Label>
+                                    <Entry x:Name="txtCountry" ></Entry>
+                                </StackLayout>
+                            </StackLayout>
+                          
+
+
+
+
+
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+
+            <Grid HeightRequest="60" WidthRequest="500" HorizontalOptions="CenterAndExpand" BackgroundColor="#0dba6c" VerticalOptions="EndAndExpand" >
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnSave_Tapped"
+                        NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Save" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" TextColor="White"></Label>                
+
+            </Grid>
+        </Grid>
+        
+
+       
+    </ContentPage.Content>
+</ContentPage>

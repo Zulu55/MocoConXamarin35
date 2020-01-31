@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             x:Class="MocoApp.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image
+                    Source="logo512"
+                    Margin="0,15,0,0"
+                    WidthRequest="232"
+                    HeightRequest="232"
+                    Aspect="AspectFit"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"/>
+
+                <StackLayout
+                    Padding="25,10,25,10"
+                    Grid.Row="1" >
+                    <Frame
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        x:Name="frmXaml"
+                        HasShadow="False">
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Source="ic_usuario"
+                                    WidthRequest="22"/>
+                                <Entry
+                                    Placeholder="{translator:Translate lblEmail}"
+                                    Keyboard="Email"
+                                    x:Name="txtEmail"
+                                    Grid.Column="1"/>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Source="ic_lock"
+                                    WidthRequest="22"/>
+                                <Entry
+                                    Placeholder="{translator:Translate lblPassword}"
+                                    IsPassword="True"
+                                    Grid.Column="1"
+                                    x:Name="txtPassword"
+                                    VerticalOptions="FillAndExpand"/>
+                                <Image
+                                    Source="ic_esqueci"
+                                    Grid.Column="2"
+                                    WidthRequest="22"
+                                    HeightRequest="22">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="OnEsqueciSenhaTapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                            <StackLayout
+                                Spacing="0">
+                                <Grid Margin="0,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button
+                                        Text="{translator:Translate lblEnter}"
+                                        BackgroundColor="#a0a0a0" BorderColor="#a0a0a0"
+                                        BorderWidth="2"
+                                        BorderRadius="10"
+                                        TextColor="White"
+                                        Clicked="OnEntrarTapped"/>
+
+
+                                    <Button
+                                        Grid.Column="1"
+                                        Text="{translator:Translate lblNewUser}"
+                                        BorderColor="Green"
+                                        BackgroundColor="Green"
+                                        BorderWidth="2"
+                                        BorderRadius="10"
+                                        TextColor="White"
+                                        Clicked="OnCadastrarTapped"/>
+                                </Grid>
+
+                                <Button
+                                    Text="{translator:Translate lblEnterFacebook}"
+                                    BackgroundColor="#3b5998"
+                                    BorderColor="#3b5998"
+                                    Margin="0,10,0,0"
+                                    BorderWidth="2"
+                                    BorderRadius="8"
+                                    TextColor="White"
+                                    Clicked="OnEntrarFacebookTapped"/>
+                            </StackLayout>
+
+                            <Label
+                                Text="{translator:Translate LblEnterAsGuest}"
+                                Margin="5,15,5,5"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="End"
+                                VerticalTextAlignment="End"
+                                HorizontalOptions="Center"
+                                FontSize="Micro" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnVisitanteTapped"
+                                        NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

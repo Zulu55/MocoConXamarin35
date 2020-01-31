@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MocoApp.Views.Menu.MenuPageXaml">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions HorizontalOptions="Fill" VerticalOptions="Fill" Spacing="1">
+                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <StackLayout Margin="0,12,0,10">
+
+                <controls:CircleImage Source="" x:Name="imgUser" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FillColor="Gray" Aspect="AspectFill" WidthRequest="80" HeightRequest="80">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                            Tapped="OnImageProfileTapped"
+                                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </controls:CircleImage>
+                
+                <StackLayout Spacing="0" Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                    <Label Text="" x:Name="lblUserName" HorizontalTextAlignment="Start" FontSize="16"  TextColor="{StaticResource TextTitleColor}"></Label>
+                    <Label Text="" x:Name="lblEmail" HorizontalTextAlignment="Start" FontSize="12" TextColor="{StaticResource TextTitleColor}"></Label>
+                </StackLayout>
+
+                <!--<BoxView Color="Gray" HeightRequest="1" VerticalOptions="EndAndExpand" WidthRequest="500"></BoxView>-->
+       
+             
+            </StackLayout>
+
+
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="Fill" Grid.Row="1">
+                <ListView
+                        x:Name="_menuListViewTop"
+                        HasUnevenRows="True"
+                         ItemsSource="{Binding MenuListData.TopItems}"
+                        SeparatorVisibility="None"
+                        CachingStrategy="RecycleElement"
+                    >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Padding="10" Margin="0,0,0,10">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="6" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout VerticalOptions="CenterAndExpand" >
+                                            <Image Source="{Binding Icon}" WidthRequest="22" HeightRequest="22"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="CenterAndExpand"  Grid.Column="2">
+                                            <Label Text="{Binding Title}"  VerticalTextAlignment="Center" VerticalOptions="Center" FontSize="14" TextColor="{StaticResource TextTitleColor}"></Label>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+
+                </ListView>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="Fill" Grid.Row="2">
+                                <ListView
+                           x:Name="_menuListViewBottom"
+                           HasUnevenRows="True"
+                           ItemsSource="{Binding MenuListData.BottomItems}"
+                           SeparatorVisibility="None"
+                           CachingStrategy="RecycleElement"
+                          >     
+                                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10,5,10,5">
+                                    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Icon}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="24"></Image>
+                                    </Grid>
+                                    <StackLayout WidthRequest="3"></StackLayout>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding Title}" FontSize="18" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+
+                </ListView>
+            </StackLayout>
+
+            <Label FontSize="8" x:Name="lblVersion" Grid.Row="3"></Label>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MocoApp.Views.Chat.ChatPage"
+                          BackgroundImage="bg_barraca"
+xmlns:translator="clr-namespace:MocoApp.Helpers;assembly=MocoApp"
+             xmlns:local="clr-namespace:MocoApp.Views.Chat"
+             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+    <ContentPage.Resources>
+
+        <!--#region nao usado - mudei tudo pra um template só -->
+        <!--<DataTemplate x:Key="enviadoTemplate">
+            <ViewCell>
+                <Frame HorizontalOptions="EndAndExpand" Padding="8" BackgroundColor="LightGreen" Margin="4">
+                    <StackLayout>
+                        <Label Text="{Binding .}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                    </StackLayout>
+                </Frame>
+            </ViewCell>
+        </DataTemplate>
+
+        <DataTemplate x:Key="recebidoTemplate">
+            <ViewCell>
+                <Frame HorizontalOptions="StartAndExpand" Padding="8" Margin="4">
+                    <StackLayout >
+                        <Label Text="{Binding .}" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start"/>
+                    </StackLayout>
+                </Frame>
+            </ViewCell>
+        </DataTemplate>
+
+        <local:ChatTemplateSelector x:Key="chatTemplateSelector"
+                                    SentTemplate="{StaticResource enviadoTemplate}"
+                                    ReceivedTemplate="{StaticResource recebidoTemplate}"/>-->
+        <!--#endregion-->
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            
+                <StackLayout Padding="20">
+                    <Frame  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" x:Name="frmXaml">
+                        <StackLayout>
+                            <Grid VerticalOptions="StartAndExpand">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="220"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="ic_voltar" x:Name="imgBack" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="24" HeightRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                    Tapped="OnMenuTapped"
+                                                        NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Grid.Column="1" Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                    <circle:CircleImage x:Name="profilePic"  Aspect="AspectFill" FillColor="SteelBlue" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                                    <Label Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource list_titleString}" x:Name="lblTitle">
+                                    </Label>
+                                </StackLayout>
+
+                            </Grid>
+
+                            <StackLayout Spacing="0" VerticalOptions="End">
+                                <ListView x:Name="msgList" HasUnevenRows="True" SeparatorVisibility="None">
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <local:ChatBubbleView/>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                </ListView>
+
+                                <Frame Padding="16,4" Margin="8" BackgroundColor="White" CornerRadius="100">
+                                    <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="msgEntry" Completed="MsgEntry_Completed"   Placeholder="{translator:Translate txtTypeMessage}" HorizontalOptions="FillAndExpand"/>
+                                        <!--<Button Text="Send" HorizontalOptions="End" Clicked="Send_Tapped"/>-->
+                                        <Image x:Name="sendImage" Source="ic_send_message" HorizontalOptions="End" WidthRequest="32" HeightRequest="32" VerticalOptions="Center">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Send_Tapped"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <ActivityIndicator x:Name="sendingIndicator" HorizontalOptions="End" WidthRequest="32" HeightRequest="32"
+                                                       VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            
+        </Grid>
+
+
+
+          
+    </ContentPage.Content>
+</ContentPage>
